@@ -1,0 +1,9 @@
+Analytical process:
+
+Cluster 47150: unsemanticised pattern (no label)
+
+Cluster 47152: [('m', 0.999), ('Spain_m', 0.019), ('Spain', 0.019)] → the male score is close to 1, making it the dominant and almost certain identity cue; the Spain & male and Spain scores are only 0.019, an extremely weak additional signal that can be regarded as noise-level and does not constitute a valid judgement
+
+Cluster 47155: [('USA', 0.664), ('USA_m', 0.664)] → USA and USA & male have exactly the same score (0.664), indicating that the "American" regional signal is itself a moderately strong dominant cue, whilst the additional "male" attribute adds no extra confidence here (identical scores)
+
+Cluster 47157: [('Ireland_m', 0.092), ('Mexico_m', 0.062), ('Mexico', 0.062)] → all three scores are very low (0.09, 0.06, 0.06) and close to one another, with no clearly dominant label, indicating that the identity signal at this stage is weak overall, with ambiguous competition between several regional hypotheses (Ireland vs Mexico)
