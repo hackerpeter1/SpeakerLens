@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>SpeakerLens 系统展示</title>
+<title>SpeakerLens Demo</title>
 
 
 <style>
@@ -39,19 +39,17 @@ body{
 
     color:var(--ink);
 
-    background:white;
-
 }
 
 
 
 main{
 
-    width:min(980px, calc(100% - 32px));
+    width:min(980px,calc(100% - 32px));
 
     margin:auto;
 
-    padding:48px 0 72px;
+    padding:48px 0 80px;
 
 }
 
@@ -69,7 +67,7 @@ header{
 
 h1{
 
-    font-size:42px;
+    font-size:40px;
 
 }
 
@@ -89,7 +87,7 @@ blockquote{
 
     border-left:4px solid var(--accent);
 
-    padding:15px 18px;
+    padding:15px;
 
     color:var(--muted);
 
@@ -113,11 +111,11 @@ blockquote{
 
     padding:10px 18px;
 
-    border-radius:6px;
+    background:white;
 
     border:1px solid var(--line);
 
-    background:white;
+    border-radius:6px;
 
     cursor:pointer;
 
@@ -143,11 +141,11 @@ blockquote{
 
     padding:18px;
 
-    border-radius:8px;
-
     background:var(--panel);
 
     border:1px solid var(--line);
+
+    border-radius:8px;
 
 }
 
@@ -165,23 +163,21 @@ img{
 
     width:100%;
 
-    max-height:520px;
+    max-height:500px;
 
     object-fit:contain;
 
     background:white;
 
-    border-radius:6px;
-
 }
 
 
 
-button.switch-btn{
+button.switch{
 
     margin-top:15px;
 
-    padding:8px 16px;
+    padding:8px 15px;
 
     border-radius:6px;
 
@@ -199,11 +195,11 @@ pre{
 
     background:white;
 
+    padding:15px;
+
     border:1px solid var(--line);
 
     border-radius:6px;
-
-    padding:15px;
 
     white-space:pre-wrap;
 
@@ -215,14 +211,11 @@ code{
 
     display:block;
 
-    margin-top:10px;
-
     background:white;
 
     padding:10px;
 
 }
-
 
 
 .label{
@@ -235,7 +228,6 @@ code{
 
 
 </style>
-
 
 </head>
 
@@ -251,10 +243,9 @@ code{
 
 <blockquote>
 
-<p><b>Motivation:</b> better Speaker Reco</p>
+<p><b>Motivation:</b> Better Speaker Recognition</p>
 
-<p><b>Keywords:</b> Speaker Reco, XAI</p>
-
+<p><b>Keywords:</b> Speaker Recognition, XAI</p>
 
 </blockquote>
 
@@ -277,8 +268,7 @@ code{
 <div class="audio-picker">
 
 
-<button
-class="audio-option"
+<button class="audio-option"
 aria-pressed="true"
 
 data-src="assets/audio/audio_a.wav"
@@ -297,10 +287,7 @@ Audio A
 
 
 
-
-
-<button
-class="audio-option"
+<button class="audio-option"
 aria-pressed="false"
 
 data-src="assets/audio/audio_b.wav"
@@ -319,10 +306,7 @@ Audio B
 
 
 
-
-
-<button
-class="audio-option"
+<button class="audio-option"
 aria-pressed="false"
 
 data-src="assets/audio/audio_c.wav"
@@ -341,10 +325,7 @@ Audio C
 
 
 
-
-
-<button
-class="audio-option"
+<button class="audio-option"
 aria-pressed="false"
 
 data-src="assets/audio/audio_d.wav"
@@ -363,10 +344,7 @@ Audio D
 
 
 
-
-
-<button
-class="audio-option"
+<button class="audio-option"
 aria-pressed="false"
 
 data-src="assets/audio/audio_e.wav"
@@ -388,9 +366,6 @@ Audio E
 
 
 
-
-
-
 <div class="stage">
 
 
@@ -402,14 +377,7 @@ src="assets/audio/audio_a.wav"
 
 type="audio/wav">
 
-
 </audio>
-
-
-
-<span class="label">
-audio source
-</span>
 
 
 <code id="sourceText">
@@ -421,7 +389,6 @@ assets/audio/audio_a.wav
 
 
 </section>
-
 
 
 
@@ -443,16 +410,12 @@ assets/audio/audio_a.wav
 src="assets/localization/audio_a.png">
 
 
-<button
-
-id="annotationButton"
-
-class="switch-btn">
+<button id="annotationButton"
+class="switch">
 
 显示轨迹
 
 </button>
-
 
 
 <code id="localizationText">
@@ -466,3 +429,379 @@ assets/localization/audio_a.png
 
 
 </section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>解释</h2>
+
+
+<div class="stage">
+
+<pre id="explanationText">
+Loading...
+</pre>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>润色</h2>
+
+
+<div class="stage">
+
+<pre id="polishText">
+Loading...
+</pre>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>对比</h2>
+
+
+<p>
+
+这里展示不同方法、不同模型或不同样本之间的比较结果。
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>问询</h2>
+
+
+<p>
+
+这里后续接入 LLM，实现用户交互式问询。
+
+</p>
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+
+<script>
+
+
+const buttons =
+document.querySelectorAll(".audio-option");
+
+
+const player =
+document.querySelector("#audioPlayer");
+
+
+const source =
+document.querySelector("#audioSource");
+
+
+const sourceText =
+document.querySelector("#sourceText");
+
+
+const localizationImage =
+document.querySelector("#localizationImage");
+
+
+const localizationText =
+document.querySelector("#localizationText");
+
+
+const explanationText =
+document.querySelector("#explanationText");
+
+
+const polishText =
+document.querySelector("#polishText");
+
+
+const annotationButton =
+document.querySelector("#annotationButton");
+
+
+
+let currentNormalImage =
+"assets/localization/audio_a.png";
+
+
+let currentAnnotationImage =
+"assets/localization/audio_a_annotation.png";
+
+
+let showingAnnotation=false;
+
+
+
+
+
+async function loadText(path,element,fallback){
+
+
+try{
+
+
+const response =
+await fetch(path);
+
+
+if(!response.ok){
+
+throw new Error(path);
+
+}
+
+
+element.textContent =
+await response.text();
+
+
+}
+
+catch(error){
+
+console.error(error);
+
+element.textContent=fallback;
+
+}
+
+
+}
+
+
+
+
+
+
+
+buttons.forEach(button=>{
+
+
+button.addEventListener("click",()=>{
+
+
+buttons.forEach(b=>{
+
+b.setAttribute(
+"aria-pressed",
+"false"
+);
+
+});
+
+
+button.setAttribute(
+"aria-pressed",
+"true"
+);
+
+
+
+
+
+source.src =
+button.dataset.src;
+
+
+sourceText.textContent =
+button.dataset.src;
+
+
+player.load();
+
+
+
+
+
+currentNormalImage =
+button.dataset.localization;
+
+
+currentAnnotationImage =
+button.dataset.annotation;
+
+
+showingAnnotation=false;
+
+
+annotationButton.textContent =
+"显示轨迹";
+
+
+localizationImage.src =
+currentNormalImage;
+
+
+localizationText.textContent =
+currentNormalImage;
+
+
+
+
+
+loadText(
+
+button.dataset.explanation,
+
+explanationText,
+
+"Explanation unavailable."
+
+);
+
+
+
+loadText(
+
+button.dataset.polish,
+
+polishText,
+
+"Polish unavailable."
+
+);
+
+
+
+});
+
+
+});
+
+
+
+
+
+
+annotationButton.addEventListener(
+"click",
+()=>{
+
+
+showingAnnotation =
+!showingAnnotation;
+
+
+
+if(showingAnnotation){
+
+
+localizationImage.src =
+currentAnnotationImage;
+
+
+localizationText.textContent =
+currentAnnotationImage;
+
+
+annotationButton.textContent =
+"隐藏轨迹";
+
+
+}
+
+else{
+
+
+localizationImage.src =
+currentNormalImage;
+
+
+localizationText.textContent =
+currentNormalImage;
+
+
+annotationButton.textContent =
+"显示轨迹";
+
+
+}
+
+
+});
+
+
+
+
+
+
+// initial text
+
+loadText(
+
+"assets/text/audio_a_zh.txt",
+
+explanationText,
+
+"Explanation unavailable."
+
+);
+
+
+
+loadText(
+
+"assets/polish/audio_a_zh.txt",
+
+polishText,
+
+"Polish unavailable."
+
+);
+
+
+
+</script>
+
+
+</body>
+
+</html>
