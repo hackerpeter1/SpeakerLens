@@ -39,7 +39,10 @@ body{
 
     color:var(--ink);
 
+    background:white;
+
 }
+
 
 
 main{
@@ -48,25 +51,28 @@ main{
 
     margin:auto;
 
-    padding:48px 0;
+    padding:48px 0 72px;
 
 }
+
 
 
 header{
 
     border-bottom:1px solid var(--line);
 
-    padding-bottom:24px;
+    padding-bottom:25px;
 
 }
+
 
 
 h1{
 
-    font-size:40px;
+    font-size:42px;
 
 }
+
 
 
 h2{
@@ -76,13 +82,16 @@ h2{
 }
 
 
+
 blockquote{
 
     background:var(--panel);
 
     border-left:4px solid var(--accent);
 
-    padding:15px;
+    padding:15px 18px;
+
+    color:var(--muted);
 
 }
 
@@ -92,9 +101,9 @@ blockquote{
 
     display:flex;
 
-    gap:10px;
-
     flex-wrap:wrap;
+
+    gap:10px;
 
 }
 
@@ -102,13 +111,13 @@ blockquote{
 
 .audio-option{
 
-    padding:10px 16px;
+    padding:10px 18px;
+
+    border-radius:6px;
 
     border:1px solid var(--line);
 
     background:white;
-
-    border-radius:6px;
 
     cursor:pointer;
 
@@ -122,6 +131,8 @@ blockquote{
 
     border-color:var(--accent);
 
+    font-weight:bold;
+
 }
 
 
@@ -132,11 +143,11 @@ blockquote{
 
     padding:18px;
 
+    border-radius:8px;
+
     background:var(--panel);
 
     border:1px solid var(--line);
-
-    border-radius:8px;
 
 }
 
@@ -154,11 +165,31 @@ img{
 
     width:100%;
 
-    max-height:500px;
+    max-height:520px;
 
     object-fit:contain;
 
     background:white;
+
+    border-radius:6px;
+
+}
+
+
+
+button.switch-btn{
+
+    margin-top:15px;
+
+    padding:8px 16px;
+
+    border-radius:6px;
+
+    border:1px solid var(--accent);
+
+    background:white;
+
+    cursor:pointer;
 
 }
 
@@ -166,28 +197,32 @@ img{
 
 pre{
 
-    white-space:pre-wrap;
-
     background:white;
-
-    padding:15px;
 
     border:1px solid var(--line);
 
     border-radius:6px;
 
+    padding:15px;
+
+    white-space:pre-wrap;
+
 }
+
 
 
 code{
 
     display:block;
 
+    margin-top:10px;
+
     background:white;
 
     padding:10px;
 
 }
+
 
 
 .label{
@@ -199,11 +234,10 @@ code{
 }
 
 
-
 </style>
 
-</head>
 
+</head>
 
 
 <body>
@@ -214,11 +248,13 @@ code{
 
 <header>
 
+
 <blockquote>
 
 <p><b>Motivation:</b> better Speaker Reco</p>
 
 <p><b>Keywords:</b> Speaker Reco, XAI</p>
+
 
 </blockquote>
 
@@ -227,6 +263,7 @@ code{
 
 
 </header>
+
 
 
 
@@ -240,16 +277,19 @@ code{
 <div class="audio-picker">
 
 
-<button class="audio-option"
+<button
+class="audio-option"
 aria-pressed="true"
 
 data-src="assets/audio/audio_a.wav"
 
 data-localization="assets/localization/audio_a.png"
 
-data-explanation="assets/text/audio_a.txt"
+data-annotation="assets/localization/audio_a_annotation.png"
 
-data-polish="assets/polish/audio_a.txt">
+data-explanation="assets/text/audio_a_zh.txt"
+
+data-polish="assets/polish/audio_a_zh.txt">
 
 Audio A
 
@@ -257,16 +297,21 @@ Audio A
 
 
 
-<button class="audio-option"
+
+
+<button
+class="audio-option"
 aria-pressed="false"
 
 data-src="assets/audio/audio_b.wav"
 
 data-localization="assets/localization/audio_b.png"
 
-data-explanation="assets/text/audio_b.txt"
+data-annotation="assets/localization/audio_b_annotation.png"
 
-data-polish="assets/polish/audio_b.txt">
+data-explanation="assets/text/audio_b_zh.txt"
+
+data-polish="assets/polish/audio_b_zh.txt">
 
 Audio B
 
@@ -274,16 +319,21 @@ Audio B
 
 
 
-<button class="audio-option"
+
+
+<button
+class="audio-option"
 aria-pressed="false"
 
 data-src="assets/audio/audio_c.wav"
 
 data-localization="assets/localization/audio_c.png"
 
-data-explanation="assets/text/audio_c.txt"
+data-annotation="assets/localization/audio_c_annotation.png"
 
-data-polish="assets/polish/audio_c.txt">
+data-explanation="assets/text/audio_c_zh.txt"
+
+data-polish="assets/polish/audio_c_zh.txt">
 
 Audio C
 
@@ -291,16 +341,21 @@ Audio C
 
 
 
-<button class="audio-option"
+
+
+<button
+class="audio-option"
 aria-pressed="false"
 
 data-src="assets/audio/audio_d.wav"
 
 data-localization="assets/localization/audio_d.png"
 
-data-explanation="assets/text/audio_d.txt"
+data-annotation="assets/localization/audio_d_annotation.png"
 
-data-polish="assets/polish/audio_d.txt">
+data-explanation="assets/text/audio_d_zh.txt"
+
+data-polish="assets/polish/audio_d_zh.txt">
 
 Audio D
 
@@ -308,16 +363,21 @@ Audio D
 
 
 
-<button class="audio-option"
+
+
+<button
+class="audio-option"
 aria-pressed="false"
 
 data-src="assets/audio/audio_e.wav"
 
 data-localization="assets/localization/audio_e.png"
 
-data-explanation="assets/text/audio_e.txt"
+data-annotation="assets/localization/audio_e_annotation.png"
 
-data-polish="assets/polish/audio_e.txt">
+data-explanation="assets/text/audio_e_zh.txt"
+
+data-polish="assets/polish/audio_e_zh.txt">
 
 Audio E
 
@@ -325,6 +385,9 @@ Audio E
 
 
 </div>
+
+
+
 
 
 
@@ -339,21 +402,18 @@ src="assets/audio/audio_a.wav"
 
 type="audio/wav">
 
+
 </audio>
 
 
 
 <span class="label">
-
 audio source
-
 </span>
 
 
 <code id="sourceText">
-
 assets/audio/audio_a.wav
-
 </code>
 
 
@@ -361,6 +421,7 @@ assets/audio/audio_a.wav
 
 
 </section>
+
 
 
 
@@ -382,11 +443,16 @@ assets/audio/audio_a.wav
 src="assets/localization/audio_a.png">
 
 
-<span class="label">
+<button
 
-localization image source
+id="annotationButton"
 
-</span>
+class="switch-btn">
+
+显示轨迹
+
+</button>
+
 
 
 <code id="localizationText">
@@ -400,296 +466,3 @@ assets/localization/audio_a.png
 
 
 </section>
-
-
-
-
-
-
-
-<section>
-
-
-<h2>解释</h2>
-
-
-<div class="stage">
-
-<pre id="explanationText">
-
-Loading explanation...
-
-</pre>
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<section>
-
-
-<h2>润色</h2>
-
-
-<div class="stage">
-
-<pre id="polishText">
-
-Loading polish...
-
-</pre>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-<h2>对比</h2>
-
-<p>
-这里后续展示不同方法之间的比较。
-</p>
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>问询</h2>
-
-<p>
-这里后续接入 LLM 问答模块。
-</p>
-
-</section>
-
-
-
-
-</main>
-
-
-
-
-
-
-<script>
-
-
-const buttons =
-document.querySelectorAll(".audio-option");
-
-
-const player =
-document.querySelector("#audioPlayer");
-
-
-const source =
-document.querySelector("#audioSource");
-
-
-const sourceText =
-document.querySelector("#sourceText");
-
-
-const localizationImage =
-document.querySelector("#localizationImage");
-
-
-const localizationText =
-document.querySelector("#localizationText");
-
-
-const explanationText =
-document.querySelector("#explanationText");
-
-
-const polishText =
-document.querySelector("#polishText");
-
-
-
-
-
-async function loadText(path, element, fallback){
-
-
-    try{
-
-
-        const response =
-        await fetch(path);
-
-
-        if(!response.ok){
-
-            throw new Error(
-                "File not found: " + path
-            );
-
-        }
-
-
-        const text =
-        await response.text();
-
-
-        element.textContent=text;
-
-
-    }
-    catch(error){
-
-
-        console.error(error);
-
-
-        element.textContent=fallback;
-
-
-    }
-
-}
-
-
-
-
-
-
-
-buttons.forEach(button=>{
-
-
-button.addEventListener("click",()=>{
-
-
-    buttons.forEach(b=>{
-
-        b.setAttribute(
-            "aria-pressed",
-            "false"
-        );
-
-    });
-
-
-    button.setAttribute(
-        "aria-pressed",
-        "true"
-    );
-
-
-
-    const audio =
-    button.dataset.src;
-
-
-    const image =
-    button.dataset.localization;
-
-
-    const explanation =
-    button.dataset.explanation;
-
-
-    const polish =
-    button.dataset.polish;
-
-
-
-
-    source.src=audio;
-
-    sourceText.textContent=audio;
-
-    player.load();
-
-
-
-
-    localizationImage.src=image;
-
-    localizationText.textContent=image;
-
-
-
-
-    loadText(
-        explanation,
-        explanationText,
-        "Explanation unavailable."
-    );
-
-
-
-    loadText(
-        polish,
-        polishText,
-        "Polish unavailable."
-    );
-
-
-
-});
-
-
-});
-
-
-
-
-
-
-// initial load
-
-loadText(
-
-"assets/text/audio_a.txt",
-
-explanationText,
-
-"Explanation unavailable."
-
-);
-
-
-
-loadText(
-
-"assets/polish/audio_a.txt",
-
-polishText,
-
-"Polish unavailable."
-
-);
-
-
-
-</script>
-
-
-
-</body>
-
-</html>
