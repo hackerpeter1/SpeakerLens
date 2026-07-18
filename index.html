@@ -309,7 +309,9 @@ data-annotation="assets/localization/audio_a_annotation.png"
 
 data-explanation="assets/text/audio_a_en.txt"
 
-data-polish="assets/polish/audio_a_en.txt">
+data-polish="assets/polish/audio_a_en.txt"
+
+data-inference="assets/polish/audio_a_inference.txt">
 
 Audio A
 
@@ -328,7 +330,9 @@ data-annotation="assets/localization/audio_b_annotation.png"
 
 data-explanation="assets/text/audio_b_en.txt"
 
-data-polish="assets/polish/audio_b_en.txt">
+data-polish="assets/polish/audio_b_en.txt"
+
+data-inference="assets/polish/audio_b_inference.txt">
 
 Audio B
 
@@ -347,7 +351,9 @@ data-annotation="assets/localization/audio_c_annotation.png"
 
 data-explanation="assets/text/audio_c_en.txt"
 
-data-polish="assets/polish/audio_c_en.txt">
+data-polish="assets/polish/audio_c_en.txt"
+
+data-inference="assets/polish/audio_c_inference.txt">
 
 Audio C
 
@@ -366,7 +372,9 @@ data-annotation="assets/localization/audio_d_annotation.png"
 
 data-explanation="assets/text/audio_d_en.txt"
 
-data-polish="assets/polish/audio_d_en.txt">
+data-polish="assets/polish/audio_d_en.txt"
+
+data-inference="assets/polish/audio_d_inference.txt">
 
 Audio D
 
@@ -385,7 +393,9 @@ data-annotation="assets/localization/audio_e_annotation.png"
 
 data-explanation="assets/text/audio_e_en.txt"
 
-data-polish="assets/polish/audio_e_en.txt">
+data-polish="assets/polish/audio_e_en.txt"
+
+data-inference="assets/polish/audio_e_inference.txt">
 
 Audio E
 
@@ -512,6 +522,20 @@ Loading...
 Loading...
 </pre>
 
+
+<button id="inferenceButton"
+class="switch">
+
+Show Inference
+
+</button>
+
+
+<pre id="inferenceText"
+style="display:none;">
+Loading...
+</pre>
+
 </div>
 
 
@@ -581,6 +605,14 @@ const polishText =
 document.querySelector("#polishText");
 
 
+const inferenceButton =
+document.querySelector("#inferenceButton");
+
+
+const inferenceText =
+document.querySelector("#inferenceText");
+
+
 const annotationButton =
 document.querySelector("#annotationButton");
 
@@ -609,6 +641,9 @@ let currentAnnotationImage = "";
 
 
 let showingAnnotation=false;
+
+
+let showingInference=false;
 
 
 
@@ -672,6 +707,17 @@ processButton.textContent =
 
 
 showingAnnotation=false;
+
+
+showingInference=false;
+
+
+inferenceText.style.display =
+"none";
+
+
+inferenceButton.textContent =
+"Show Inference";
 
 
 }
@@ -798,6 +844,18 @@ polishText,
 
 
 
+loadText(
+
+data.inference,
+
+inferenceText,
+
+"Inference unavailable."
+
+);
+
+
+
 
 resultsSection.style.display =
 "block";
@@ -849,6 +907,49 @@ currentNormalImage;
 
 annotationButton.textContent =
 "Show Trajectory";
+
+
+}
+
+
+});
+
+
+
+
+
+inferenceButton.addEventListener(
+"click",
+()=>{
+
+
+showingInference =
+!showingInference;
+
+
+
+if(showingInference){
+
+
+inferenceText.style.display =
+"block";
+
+
+inferenceButton.textContent =
+"Hide Inference";
+
+
+}
+
+else{
+
+
+inferenceText.style.display =
+"none";
+
+
+inferenceButton.textContent =
+"Show Inference";
 
 
 }

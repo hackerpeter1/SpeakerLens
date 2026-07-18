@@ -191,6 +191,36 @@ button.switch{
 
 
 
+button.process{
+
+    padding:12px 22px;
+
+    border-radius:6px;
+
+    border:1px solid var(--accent);
+
+    background:var(--accent);
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+
+button.process:disabled{
+
+    opacity:0.7;
+
+    cursor:default;
+
+}
+
+
+
 pre{
 
     background:white;
@@ -392,7 +422,25 @@ assets/audio/audio_a.wav
 
 
 
+<section>
 
+
+<div class="stage" id="processStage" style="text-align:center;">
+
+<button id="processButton" class="process">
+
+Process Audio by SpeakerLens
+
+</button>
+
+</div>
+
+
+</section>
+
+
+
+<div id="resultsSection" style="display:none;">
 
 
 
@@ -407,7 +455,7 @@ assets/audio/audio_a.wav
 
 <img id="localizationImage"
 
-src="assets/localization/audio_a.png">
+src="">
 
 
 <button id="annotationButton"
@@ -416,13 +464,6 @@ class="switch">
 Show Trajectory
 
 </button>
-
-
-<code id="localizationText">
-
-assets/localization/audio_a.png
-
-</code>
 
 
 </div>
@@ -497,6 +538,10 @@ LLM integration will be added here to enable interactive user queries.
 
 
 
+</div>
+
+
+
 
 
 </main>
@@ -528,10 +573,6 @@ const localizationImage =
 document.querySelector("#localizationImage");
 
 
-const localizationText =
-document.querySelector("#localizationText");
-
-
 const explanationText =
 document.querySelector("#explanationText");
 
@@ -544,13 +585,27 @@ const annotationButton =
 document.querySelector("#annotationButton");
 
 
+const processStage =
+document.querySelector("#processStage");
 
-let currentNormalImage =
-"assets/localization/audio_a.png";
+
+const processButton =
+document.querySelector("#processButton");
 
 
-let currentAnnotationImage =
-"assets/localization/audio_a_annotation.png";
+const resultsSection =
+document.querySelector("#resultsSection");
+
+
+
+let selectedButton =
+document.querySelector('.audio-option[aria-pressed="true"]');
+
+
+let currentNormalImage = "";
+
+
+let currentAnnotationImage = "";
 
 
 let showingAnnotation=false;
@@ -597,6 +652,32 @@ element.textContent=fallback;
 
 
 
+function resetResults(){
+
+
+resultsSection.style.display =
+"none";
+
+
+processStage.style.display =
+"block";
+
+
+processButton.disabled =
+false;
+
+
+processButton.textContent =
+"Process Audio by SpeakerLens";
+
+
+showingAnnotation=false;
+
+
+}
+
+
+
 
 
 buttons.forEach(button=>{
@@ -621,6 +702,8 @@ button.setAttribute(
 );
 
 
+selectedButton = button;
+
 
 
 
@@ -637,13 +720,45 @@ player.load();
 
 
 
+resetResults();
+
+
+});
+
+
+});
+
+
+
+
+
+
+processButton.addEventListener("click",()=>{
+
+
+processButton.disabled =
+true;
+
+
+processButton.textContent =
+"Processing...";
+
+
+
+setTimeout(()=>{
+
+
+const data =
+selectedButton.dataset;
+
+
 
 currentNormalImage =
-button.dataset.localization;
+data.localization;
 
 
 currentAnnotationImage =
-button.dataset.annotation;
+data.annotation;
 
 
 showingAnnotation=false;
@@ -657,16 +772,11 @@ localizationImage.src =
 currentNormalImage;
 
 
-localizationText.textContent =
-currentNormalImage;
-
-
-
 
 
 loadText(
 
-button.dataset.explanation,
+data.explanation,
 
 explanationText,
 
@@ -678,7 +788,7 @@ explanationText,
 
 loadText(
 
-button.dataset.polish,
+data.polish,
 
 polishText,
 
@@ -688,7 +798,16 @@ polishText,
 
 
 
-});
+
+resultsSection.style.display =
+"block";
+
+
+processStage.style.display =
+"none";
+
+
+},1500);
 
 
 });
@@ -715,10 +834,6 @@ localizationImage.src =
 currentAnnotationImage;
 
 
-localizationText.textContent =
-currentAnnotationImage;
-
-
 annotationButton.textContent =
 "Hide Trajectory";
 
@@ -732,10 +847,6 @@ localizationImage.src =
 currentNormalImage;
 
 
-localizationText.textContent =
-currentNormalImage;
-
-
 annotationButton.textContent =
 "Show Trajectory";
 
@@ -744,35 +855,6 @@ annotationButton.textContent =
 
 
 });
-
-
-
-
-
-
-// initial text
-
-loadText(
-
-"assets/text/audio_a_en.txt",
-
-explanationText,
-
-"Explanation unavailable."
-
-);
-
-
-
-loadText(
-
-"assets/polish/audio_a_en.txt",
-
-polishText,
-
-"Polish unavailable."
-
-);
 
 
 
