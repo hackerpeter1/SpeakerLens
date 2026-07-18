@@ -191,36 +191,6 @@ button.switch{
 
 
 
-button.process{
-
-    padding:12px 22px;
-
-    border-radius:6px;
-
-    border:1px solid var(--accent);
-
-    background:var(--accent);
-
-    color:white;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-}
-
-
-
-button.process:disabled{
-
-    opacity:0.7;
-
-    cursor:default;
-
-}
-
-
-
 pre{
 
     background:white;
@@ -422,25 +392,7 @@ assets/audio/audio_a.wav
 
 
 
-<section>
 
-
-<div class="stage" id="processStage" style="text-align:center;">
-
-<button id="processButton" class="process">
-
-Process Audio by SpeakerLens
-
-</button>
-
-</div>
-
-
-</section>
-
-
-
-<div id="resultsSection" style="display:none;">
 
 
 
@@ -455,7 +407,7 @@ Process Audio by SpeakerLens
 
 <img id="localizationImage"
 
-src="">
+src="assets/localization/audio_a.png">
 
 
 <button id="annotationButton"
@@ -468,7 +420,7 @@ Show Trajectory
 
 <code id="localizationText">
 
-
+assets/localization/audio_a.png
 
 </code>
 
@@ -545,10 +497,6 @@ LLM integration will be added here to enable interactive user queries.
 
 
 
-</div>
-
-
-
 
 
 </main>
@@ -596,27 +544,13 @@ const annotationButton =
 document.querySelector("#annotationButton");
 
 
-const processStage =
-document.querySelector("#processStage");
+
+let currentNormalImage =
+"assets/localization/audio_a.png";
 
 
-const processButton =
-document.querySelector("#processButton");
-
-
-const resultsSection =
-document.querySelector("#resultsSection");
-
-
-
-let selectedButton =
-document.querySelector('.audio-option[aria-pressed="true"]');
-
-
-let currentNormalImage = "";
-
-
-let currentAnnotationImage = "";
+let currentAnnotationImage =
+"assets/localization/audio_a_annotation.png";
 
 
 let showingAnnotation=false;
@@ -663,32 +597,6 @@ element.textContent=fallback;
 
 
 
-function resetResults(){
-
-
-resultsSection.style.display =
-"none";
-
-
-processStage.style.display =
-"block";
-
-
-processButton.disabled =
-false;
-
-
-processButton.textContent =
-"Process Audio by SpeakerLens";
-
-
-showingAnnotation=false;
-
-
-}
-
-
-
 
 
 buttons.forEach(button=>{
@@ -713,8 +621,6 @@ button.setAttribute(
 );
 
 
-selectedButton = button;
-
 
 
 
@@ -731,45 +637,13 @@ player.load();
 
 
 
-resetResults();
-
-
-});
-
-
-});
-
-
-
-
-
-
-processButton.addEventListener("click",()=>{
-
-
-processButton.disabled =
-true;
-
-
-processButton.textContent =
-"Processing...";
-
-
-
-setTimeout(()=>{
-
-
-const data =
-selectedButton.dataset;
-
-
 
 currentNormalImage =
-data.localization;
+button.dataset.localization;
 
 
 currentAnnotationImage =
-data.annotation;
+button.dataset.annotation;
 
 
 showingAnnotation=false;
@@ -789,9 +663,10 @@ currentNormalImage;
 
 
 
+
 loadText(
 
-data.explanation,
+button.dataset.explanation,
 
 explanationText,
 
@@ -803,7 +678,7 @@ explanationText,
 
 loadText(
 
-data.polish,
+button.dataset.polish,
 
 polishText,
 
@@ -813,16 +688,7 @@ polishText,
 
 
 
-
-resultsSection.style.display =
-"block";
-
-
-processStage.style.display =
-"none";
-
-
-},1500);
+});
 
 
 });
@@ -878,6 +744,35 @@ annotationButton.textContent =
 
 
 });
+
+
+
+
+
+
+// initial text
+
+loadText(
+
+"assets/text/audio_a_en.txt",
+
+explanationText,
+
+"Explanation unavailable."
+
+);
+
+
+
+loadText(
+
+"assets/polish/audio_a_en.txt",
+
+polishText,
+
+"Polish unavailable."
+
+);
 
 
 
