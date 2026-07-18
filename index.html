@@ -466,13 +466,6 @@ Show Trajectory
 </button>
 
 
-<code id="localizationText">
-
-
-
-</code>
-
-
 </div>
 
 
@@ -578,10 +571,6 @@ document.querySelector("#sourceText");
 
 const localizationImage =
 document.querySelector("#localizationImage");
-
-
-const localizationText =
-document.querySelector("#localizationText");
 
 
 const explanationText =
@@ -783,10 +772,6 @@ localizationImage.src =
 currentNormalImage;
 
 
-localizationText.textContent =
-currentNormalImage;
-
-
 
 
 loadText(
@@ -849,10 +834,6 @@ localizationImage.src =
 currentAnnotationImage;
 
 
-localizationText.textContent =
-currentAnnotationImage;
-
-
 annotationButton.textContent =
 "Hide Trajectory";
 
@@ -863,10 +844,6 @@ else{
 
 
 localizationImage.src =
-currentNormalImage;
-
-
-localizationText.textContent =
 currentNormalImage;
 
 

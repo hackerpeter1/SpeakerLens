@@ -1,0 +1,19 @@
+1 - Intuitive version (path traversed by the closest known sample to audio c):
+Combining with the closest known sample to audio c, the second-order semantic pattern used to distinguish speaker identity gradually refines as follows: a pattern that cannot be semanticised -> a semantic pattern dominated by the male signal (accompanied by an almost negligible Spain cue) -> a semantic pattern in which USA and "USA and male" are of equal strength -> an ambiguous semantic pattern in which several weakly competing hypotheses coexist, such as Ireland and Mexico -> a semantic pattern in which UK and "UK and male" are of equal strength -> a pattern that cannot be semanticised.
+
+2 - Factual version (audio c's own assignment path):
+In the course of hierarchical assignment of audio c's own representation, the second-order semantic pattern used to distinguish speaker identity gradually refines as follows: a pattern that cannot be semanticised -> a semantic pattern dominated by the male signal (accompanied by an almost negligible Spain cue) -> a semantic pattern in which USA and "USA and male" are of equal strength -> an ambiguous semantic pattern in which several weakly competing hypotheses coexist, such as Ireland and Mexico -> a semantic pattern in which UK and "UK and male" are of equal strength -> a pattern that cannot be semanticised.
+
+Analytical process:
+
+Cluster 47150: unsemanticised pattern (no label)
+
+Cluster 47152: [('m', 0.999), ('Spain_m', 0.019), ('Spain', 0.019)] → the male score is close to 1, making it the dominant and almost certain identity cue; the Spain & male and Spain scores are only 0.019, an extremely weak additional signal that can be regarded as noise-level and does not constitute a valid judgement
+
+Cluster 47155: [('USA', 0.664), ('USA_m', 0.664)] → USA and USA & male have exactly the same score (0.664), indicating that the "American" regional signal is itself a moderately strong dominant cue, whilst the additional "male" attribute adds no extra confidence here (identical scores)
+
+Cluster 47157: [('Ireland_m', 0.092), ('Mexico_m', 0.062), ('Mexico', 0.062)] → all three scores are very low (0.09, 0.06, 0.06) and close to one another, with no clearly dominant label, indicating that the identity signal at this stage is weak overall, with ambiguous competition between several regional hypotheses (Ireland vs Mexico)
+
+Cluster 47162: [('UK_m', 0.590), ('UK', 0.590)] → UK & male and UK have identical scores (0.590), a moderate strength, with the "male" attribute likewise adding no extra discriminative power
+
+Cluster 47163: unsemanticised pattern (no label)
