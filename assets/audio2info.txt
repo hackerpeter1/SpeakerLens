@@ -1,0 +1,11 @@
+/home/yx00646/Desktop/dataset/vox2_test/id07354/T_GzQ5Ekfz8/00226.wav audio_a.wav 1927
+
+/home/yx00646/Desktop/dataset/vox2_test/id00817/MUrtvnD3jMc/00203.wav audio_b.wav 3954
+
+/home/yx00646/Desktop/dataset/vox2_test/id09017/p8b5sqw96dQ/00274.wav audio_c.wav 4750
+
+/home/yx00646/Desktop/dataset/vox2_test/id07621/zVu6umRpKlw/00500.wav audio_d.wav 0
+
+/home/yx00646/Desktop/dataset/vox2_test/id03862/w97YzyPYm1k/00472.wav audio_e.wav 1
+
+

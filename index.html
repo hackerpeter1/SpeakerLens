@@ -2,116 +2,87 @@
 <html lang="zh-CN">
 
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>SpeakerLens 系统展示</title>
 
 
 <style>
 
-:root {
-  color-scheme: light;
-
-  --ink:#18212f;
-  --muted:#627086;
-  --line:#d8dee8;
-  --panel:#f7f9fc;
-  --accent:#0f766e;
-  --accent-soft:#dff5f1;
-  --bg:#ffffff;
+:root{
+    --ink:#18212f;
+    --muted:#627086;
+    --line:#d8dee8;
+    --panel:#f7f9fc;
+    --accent:#0f766e;
+    --accent-soft:#dff5f1;
 }
 
 
 *{
- box-sizing:border-box;
+    box-sizing:border-box;
 }
 
 
 body{
 
- margin:0;
+    margin:0;
 
- font-family:
- Inter,
- ui-sans-serif,
- system-ui,
- -apple-system,
- BlinkMacSystemFont,
- "Segoe UI",
- sans-serif;
+    font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
 
- color:var(--ink);
+    color:var(--ink);
 
- background:var(--bg);
-
- line-height:1.6;
 }
-
 
 
 main{
 
- width:min(980px,calc(100% - 32px));
+    width:min(980px, calc(100% - 32px));
 
- margin:0 auto;
+    margin:auto;
 
- padding:48px 0 72px;
+    padding:48px 0;
 
 }
-
 
 
 header{
 
- padding-bottom:28px;
+    border-bottom:1px solid var(--line);
 
- border-bottom:1px solid var(--line);
-
-}
-
-
-
-blockquote{
-
- margin:0 0 24px;
-
- padding:14px 18px;
-
- color:var(--muted);
-
- background:var(--panel);
-
- border-left:4px solid var(--accent);
-
- border-radius:6px;
+    padding-bottom:24px;
 
 }
-
 
 
 h1{
 
- margin:0;
-
- font-size:clamp(28px,4vw,44px);
+    font-size:40px;
 
 }
 
 
 h2{
 
- margin:36px 0 14px;
-
- font-size:24px;
+    margin-top:35px;
 
 }
 
 
+blockquote{
 
-section{
+    background:var(--panel);
 
- padding:8px 0;
+    border-left:4px solid var(--accent);
+
+    padding:15px;
 
 }
 
@@ -119,13 +90,11 @@ section{
 
 .audio-picker{
 
- display:flex;
+    display:flex;
 
- flex-wrap:wrap;
+    gap:10px;
 
- gap:10px;
-
- margin:16px 0 18px;
+    flex-wrap:wrap;
 
 }
 
@@ -133,21 +102,15 @@ section{
 
 .audio-option{
 
- min-height:42px;
+    padding:10px 16px;
 
- padding:0 14px;
+    border:1px solid var(--line);
 
- border:1px solid var(--line);
+    background:white;
 
- border-radius:6px;
+    border-radius:6px;
 
- color:var(--ink);
-
- background:#fff;
-
- cursor:pointer;
-
- font:inherit;
+    cursor:pointer;
 
 }
 
@@ -155,13 +118,9 @@ section{
 
 .audio-option[aria-pressed="true"]{
 
- border-color:var(--accent);
+    background:var(--accent-soft);
 
- color:#075e56;
-
- background:var(--accent-soft);
-
- font-weight:650;
+    border-color:var(--accent);
 
 }
 
@@ -169,17 +128,15 @@ section{
 
 .stage{
 
- display:grid;
+    margin-top:15px;
 
- gap:12px;
+    padding:18px;
 
- padding:18px;
+    background:var(--panel);
 
- background:var(--panel);
+    border:1px solid var(--line);
 
- border:1px solid var(--line);
-
- border-radius:8px;
+    border-radius:8px;
 
 }
 
@@ -187,7 +144,7 @@ section{
 
 audio{
 
- width:100%;
+    width:100%;
 
 }
 
@@ -195,49 +152,52 @@ audio{
 
 img{
 
- width:100%;
+    width:100%;
 
- min-height:220px;
+    max-height:500px;
 
- object-fit:contain;
+    object-fit:contain;
 
- background:#fff;
-
- border:1px solid var(--line);
-
- border-radius:6px;
+    background:white;
 
 }
 
 
 
-code,pre{
+pre{
 
- display:block;
+    white-space:pre-wrap;
 
- overflow-wrap:anywhere;
+    background:white;
 
- white-space:pre-wrap;
+    padding:15px;
 
- padding:12px;
+    border:1px solid var(--line);
 
- background:#fff;
-
- border:1px solid var(--line);
-
- border-radius:6px;
+    border-radius:6px;
 
 }
 
+
+code{
+
+    display:block;
+
+    background:white;
+
+    padding:10px;
+
+}
 
 
 .label{
 
- color:var(--muted);
+    color:var(--muted);
 
- font-size:14px;
+    font-size:14px;
 
 }
+
 
 
 </style>
@@ -256,9 +216,9 @@ code,pre{
 
 <blockquote>
 
-<p><strong>Motivation:</strong> better Speaker Reco</p>
+<p><b>Motivation:</b> better Speaker Reco</p>
 
-<p><strong>Keywords:</strong> Speaker Reco, XAI</p>
+<p><b>Keywords:</b> Speaker Reco, XAI</p>
 
 </blockquote>
 
@@ -267,7 +227,6 @@ code,pre{
 
 
 </header>
-
 
 
 
@@ -281,17 +240,16 @@ code,pre{
 <div class="audio-picker">
 
 
-<button
-class="audio-option"
+<button class="audio-option"
 aria-pressed="true"
 
-data-src="assets/audio/audio-a.wav"
+data-src="assets/audio/audio_a.wav"
 
-data-localization="assets/localization/audio-a.png"
+data-localization="assets/localization/audio_a.png"
 
-data-explanation="assets/text/audio-a.txt"
+data-explanation="assets/text/audio_a.txt"
 
-data-polish="assets/polish/audio-a.txt">
+data-polish="assets/polish/audio_a.txt">
 
 Audio A
 
@@ -299,18 +257,16 @@ Audio A
 
 
 
-
-<button
-class="audio-option"
+<button class="audio-option"
 aria-pressed="false"
 
-data-src="assets/audio/audio-b.wav"
+data-src="assets/audio/audio_b.wav"
 
-data-localization="assets/localization/audio-b.png"
+data-localization="assets/localization/audio_b.png"
 
-data-explanation="assets/text/audio-b.txt"
+data-explanation="assets/text/audio_b.txt"
 
-data-polish="assets/polish/audio-b.txt">
+data-polish="assets/polish/audio_b.txt">
 
 Audio B
 
@@ -318,18 +274,16 @@ Audio B
 
 
 
-
-<button
-class="audio-option"
+<button class="audio-option"
 aria-pressed="false"
 
-data-src="assets/audio/audio-c.wav"
+data-src="assets/audio/audio_c.wav"
 
-data-localization="assets/localization/audio-c.png"
+data-localization="assets/localization/audio_c.png"
 
-data-explanation="assets/text/audio-c.txt"
+data-explanation="assets/text/audio_c.txt"
 
-data-polish="assets/polish/audio-c.txt">
+data-polish="assets/polish/audio_c.txt">
 
 Audio C
 
@@ -337,18 +291,16 @@ Audio C
 
 
 
-
-<button
-class="audio-option"
+<button class="audio-option"
 aria-pressed="false"
 
-data-src="assets/audio/audio-d.wav"
+data-src="assets/audio/audio_d.wav"
 
-data-localization="assets/localization/audio-d.png"
+data-localization="assets/localization/audio_d.png"
 
-data-explanation="assets/text/audio-d.txt"
+data-explanation="assets/text/audio_d.txt"
 
-data-polish="assets/polish/audio-d.txt">
+data-polish="assets/polish/audio_d.txt">
 
 Audio D
 
@@ -356,18 +308,16 @@ Audio D
 
 
 
-
-<button
-class="audio-option"
+<button class="audio-option"
 aria-pressed="false"
 
-data-src="assets/audio/audio-e.wav"
+data-src="assets/audio/audio_e.wav"
 
-data-localization="assets/localization/audio-e.png"
+data-localization="assets/localization/audio_e.png"
 
-data-explanation="assets/text/audio-e.txt"
+data-explanation="assets/text/audio_e.txt"
 
-data-polish="assets/polish/audio-e.txt">
+data-polish="assets/polish/audio_e.txt">
 
 Audio E
 
@@ -378,40 +328,39 @@ Audio E
 
 
 
-
-
 <div class="stage">
 
 
 <audio id="audioPlayer" controls>
 
 <source id="audioSource"
-src="assets/audio/audio-a.wav"
+
+src="assets/audio/audio_a.wav"
+
 type="audio/wav">
 
 </audio>
 
 
-<div>
 
 <span class="label">
+
 audio source
+
 </span>
 
 
 <code id="sourceText">
-assets/audio/audio-a.wav
+
+assets/audio/audio_a.wav
+
 </code>
 
 
 </div>
 
 
-</div>
-
-
 </section>
-
 
 
 
@@ -428,22 +377,22 @@ assets/audio/audio-a.wav
 <div class="stage">
 
 
-<img
+<img id="localizationImage"
 
-id="localizationImage"
-
-src="assets/localization/audio-a.png"
-
-/>
+src="assets/localization/audio_a.png">
 
 
 <span class="label">
+
 localization image source
+
 </span>
 
 
 <code id="localizationText">
-assets/localization/audio-a.png
+
+assets/localization/audio_a.png
+
 </code>
 
 
@@ -451,7 +400,6 @@ assets/localization/audio-a.png
 
 
 </section>
-
 
 
 
@@ -467,13 +415,11 @@ assets/localization/audio-a.png
 
 <div class="stage">
 
-
 <pre id="explanationText">
 
 Loading explanation...
 
 </pre>
-
 
 </div>
 
@@ -495,7 +441,6 @@ Loading explanation...
 
 <div class="stage">
 
-
 <pre id="polishText">
 
 Loading polish...
@@ -514,19 +459,15 @@ Loading polish...
 
 
 
-
 <section>
 
 <h2>对比</h2>
 
 <p>
-这里后续展示不同方法、不同样本或不同解释结果之间的对比。
+这里后续展示不同方法之间的比较。
 </p>
 
-
 </section>
-
-
 
 
 
@@ -537,12 +478,10 @@ Loading polish...
 <h2>问询</h2>
 
 <p>
-这里后续放用户可提出的问题，以及系统返回的解释型回答。
+这里后续接入 LLM 问答模块。
 </p>
 
-
 </section>
-
 
 
 
@@ -554,13 +493,11 @@ Loading polish...
 
 
 
-
 <script>
 
 
 const buttons =
 document.querySelectorAll(".audio-option");
-
 
 
 const player =
@@ -575,14 +512,12 @@ const sourceText =
 document.querySelector("#sourceText");
 
 
-
 const localizationImage =
 document.querySelector("#localizationImage");
 
 
 const localizationText =
 document.querySelector("#localizationText");
-
 
 
 const explanationText =
@@ -596,39 +531,45 @@ document.querySelector("#polishText");
 
 
 
+async function loadText(path, element, fallback){
 
 
-
-async function loadText(path,element,defaultText){
-
-
-try{
+    try{
 
 
-const response =
-await fetch(path);
+        const response =
+        await fetch(path);
 
 
-const text =
-await response.text();
+        if(!response.ok){
+
+            throw new Error(
+                "File not found: " + path
+            );
+
+        }
 
 
-element.textContent=text;
+        const text =
+        await response.text();
 
+
+        element.textContent=text;
+
+
+    }
+    catch(error){
+
+
+        console.error(error);
+
+
+        element.textContent=fallback;
+
+
+    }
 
 }
-
-catch(error){
-
-
-element.textContent=defaultText;
-
-
-}
-
-
-}
-
 
 
 
@@ -642,96 +583,75 @@ buttons.forEach(button=>{
 button.addEventListener("click",()=>{
 
 
-const nextSource =
-button.dataset.src;
+    buttons.forEach(b=>{
+
+        b.setAttribute(
+            "aria-pressed",
+            "false"
+        );
+
+    });
 
 
-const nextLocalization =
-button.dataset.localization;
-
-
-const nextExplanation =
-button.dataset.explanation;
-
-
-const nextPolish =
-button.dataset.polish;
-
-
+    button.setAttribute(
+        "aria-pressed",
+        "true"
+    );
 
 
 
-buttons.forEach(item=>{
-
-item.setAttribute(
-"aria-pressed",
-"false"
-);
-
-});
+    const audio =
+    button.dataset.src;
 
 
-button.setAttribute(
-"aria-pressed",
-"true"
-);
+    const image =
+    button.dataset.localization;
 
+
+    const explanation =
+    button.dataset.explanation;
+
+
+    const polish =
+    button.dataset.polish;
 
 
 
 
-source.src=nextSource;
+    source.src=audio;
 
+    sourceText.textContent=audio;
 
-sourceText.textContent=
-nextSource;
-
-
-player.load();
+    player.load();
 
 
 
 
+    localizationImage.src=image;
 
-localizationImage.src=
-nextLocalization;
-
-
-localizationText.textContent=
-nextLocalization;
+    localizationText.textContent=image;
 
 
 
 
-
-
-loadText(
-
-nextExplanation,
-
-explanationText,
-
-"Explanation unavailable."
-
-);
+    loadText(
+        explanation,
+        explanationText,
+        "Explanation unavailable."
+    );
 
 
 
-
-
-loadText(
-
-nextPolish,
-
-polishText,
-
-"Polish unavailable."
-
-);
+    loadText(
+        polish,
+        polishText,
+        "Polish unavailable."
+    );
 
 
 
 });
+
 
 });
 
@@ -739,11 +659,12 @@ polishText,
 
 
 
-// 页面初始加载 Audio A
+
+// initial load
 
 loadText(
 
-"assets/text/audio-a.txt",
+"assets/text/audio_a.txt",
 
 explanationText,
 
@@ -755,7 +676,7 @@ explanationText,
 
 loadText(
 
-"assets/polish/audio-a.txt",
+"assets/polish/audio_a.txt",
 
 polishText,
 
