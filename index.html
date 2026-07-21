@@ -514,6 +514,38 @@ letter-spacing:1px;
 
 
 
+.glow-desc{
+
+
+font-size:15.5px;
+
+
+line-height:1.9;
+
+
+margin:-8px 0 25px;
+
+
+
+color:
+
+
+var(--text);
+
+
+
+letter-spacing:.3px;
+
+
+
+max-width:820px;
+
+
+}
+
+
+
+
 
 /* AUDIO SELECT */
 
@@ -1466,7 +1498,7 @@ font-size:36px;
 
 <div class="badge">
 
-BLACK GOLD XAI LAB
+THE REAL APPLICATION OF XAI
 
 </div>
 
@@ -1483,9 +1515,9 @@ SpeakerLens
 <div class="subtitle">
 
 
-Explainable AI Framework for
+A prototype system for
 
-Second-Order Speaker Pattern Recognition
+second-order pattern (speaker) recognition
 
 
 </div>
@@ -1496,7 +1528,7 @@ Second-Order Speaker Pattern Recognition
 <div class="keyword">
 
 
-XAI · Speaker Recognition · Hierarchical Representation · LLM Reasoning
+XAI · Second-Order Pattern Recognition · Hierarchical Representational Organisation · LLM Reasoning
 
 
 </div>
@@ -1711,11 +1743,11 @@ type="audio/wav">
 </div>
 
 <div class="node-title">
-Acoustic Signal
+Acoustic Signal Input
 </div>
 
 <p>
-Raw waveform input
+Waveform spectrogram
 </p>
 
 
@@ -1735,7 +1767,7 @@ Representation
 </div>
 
 <p>
-Hierarchical embedding
+Speaker embeddings in hierarchical organisation
 </p>
 
 
@@ -1752,11 +1784,11 @@ Hierarchical embedding
 </div>
 
 <div class="node-title">
-Pattern Recognition
+Second-Order Pattern Recognition
 </div>
 
 <p>
-Second-order speaker pattern
+Hierarchical cluster navigation and assignment
 </p>
 
 
@@ -1773,11 +1805,11 @@ Second-order speaker pattern
 </div>
 
 <div class="node-title">
-Explanation
+Output
 </div>
 
 <p>
-XAI + LLM reasoning
+LLM-powered description
 </p>
 
 
@@ -1826,9 +1858,17 @@ style="display:none;">
 
 <div class="card-title">
 
-03 / HIERARCHICAL REPRESENTATION MAP
+03 / KNOWN-AUDIO HIERARCHY & UNSEEN-AUDIO PATH
 
 </div>
+
+
+
+<p class="glow-desc">
+
+This hierarchy is built by a hierarchical clustering algorithm analysing the representation space of the speaker recognition network, trained on known audios. For a new sample, we trace where it lands, what path it takes through the hierarchy, and which cluster it is ultimately assigned to. As more known audios are analysed, more hierarchies are discovered within the representation space.
+
+</p>
 
 
 
@@ -1863,9 +1903,18 @@ SHOW TRAJECTORY
 
 <div class="card-title">
 
-04 / XAI PATTERN EXPLANATION
+04 / IDENTIFICATION OF SECOND-ORDER SEMANTIC PATTERNS
 
 </div>
+
+
+
+<p class="glow-desc">
+
+A second-order pattern is a deeper pattern involved in the decision-making process of the first-order pattern recognition task (i.e. speaker recognition task). Concretely, each level of cluster in the hierarchy corresponds to one second-order pattern, and each second-order semantic pattern is what semantic attribute that cluster represents.
+
+</p>
+
 
 
 <pre id="explanationText">
@@ -1889,9 +1938,17 @@ Waiting for analysis...
 
 <div class="card-title">
 
-05 / LLM SEMANTIC INTERPRETATION
+05 / LLM-POWERED RESULT POLISHING
 
 </div>
+
+
+
+<p class="glow-desc">
+
+Based on the facts identified from the second-order pattern, an LLM polishes them into natural language that is easy to understand.
+
+</p>
 
 
 
@@ -1943,7 +2000,7 @@ Waiting...
 
 <div class="card-title">
 
-06 / AI ASSISTANT MODULE
+06 / LLM-POWERED Q&A
 
 </div>
 
@@ -2252,7 +2309,7 @@ processButton.disabled=true;
 
 processButton.textContent=
 
-"ANALYZING AUDIO...";
+"ANALYSING AUDIO...";
 
 
 
