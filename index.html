@@ -1,43 +1,58 @@
-<!doctype html>
-<html lang="en-GB">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SpeakerLens Demo</title>
+<title>SpeakerLens XAI System</title>
 
 
 <style>
 
 :root{
-    --ink:#18212f;
-    --muted:#627086;
-    --line:#d8dee8;
-    --panel:#f7f9fc;
-    --accent:#0f766e;
-    --accent-soft:#dff5f1;
+
+--bg:#050914;
+--panel:rgba(255,255,255,.06);
+--border:rgba(255,255,255,.12);
+
+--text:#e8f1ff;
+--muted:#93a4bd;
+
+--cyan:#00e5ff;
+--blue:#2563ff;
+--green:#00ffa3;
+
 }
 
 
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
 
 
 body{
 
-    margin:0;
+margin:0;
 
-    font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    sans-serif;
+font-family:
+Inter,
+system-ui,
+Segoe UI,
+sans-serif;
 
-    color:var(--ink);
+background:
+
+radial-gradient(
+circle at top,
+#15284a,
+#050914 55%
+);
+
+color:var(--text);
+
+min-height:100vh;
 
 }
 
@@ -45,21 +60,58 @@ body{
 
 main{
 
-    width:min(980px,calc(100% - 32px));
+width:min(1200px,calc(100% - 40px));
 
-    margin:auto;
+margin:auto;
 
-    padding:48px 0 80px;
+padding:40px 0 100px;
 
 }
 
 
 
+/* HEADER */
+
+
 header{
 
-    border-bottom:1px solid var(--line);
+padding:35px;
 
-    padding-bottom:25px;
+border:
+1px solid var(--border);
+
+background:
+var(--panel);
+
+backdrop-filter:
+blur(20px);
+
+border-radius:24px;
+
+box-shadow:
+0 0 40px rgba(0,229,255,.12);
+
+}
+
+
+
+.badge{
+
+display:inline-block;
+
+padding:8px 16px;
+
+border-radius:30px;
+
+background:
+rgba(0,229,255,.12);
+
+color:
+var(--cyan);
+
+font-size:14px;
+
+letter-spacing:2px;
 
 }
 
@@ -67,41 +119,92 @@ header{
 
 h1{
 
-    font-size:40px;
+font-size:48px;
+
+margin:20px 0 10px;
+
+background:
+linear-gradient(
+90deg,
+#fff,
+var(--cyan)
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
 
 }
 
 
 
-h2{
+.subtitle{
 
-    margin-top:35px;
+color:var(--muted);
+
+font-size:18px;
+
+}
+
+
+
+.keyword{
+
+margin-top:20px;
+
+color:#b9c9df;
 
 }
 
 
 
-blockquote{
+/* CARD */
 
-    background:var(--panel);
 
-    border-left:4px solid var(--accent);
+.card{
 
-    padding:15px;
+margin-top:30px;
 
-    color:var(--muted);
+padding:30px;
+
+background:
+var(--panel);
+
+border:
+1px solid var(--border);
+
+border-radius:22px;
+
+backdrop-filter:
+blur(18px);
 
 }
 
+
+
+.card-title{
+
+font-size:22px;
+
+margin-bottom:20px;
+
+color:
+var(--cyan);
+
+}
+
+
+
+/* AUDIO BUTTON */
 
 
 .audio-picker{
 
-    display:flex;
+display:flex;
 
-    flex-wrap:wrap;
+gap:12px;
 
-    gap:10px;
+flex-wrap:wrap;
 
 }
 
@@ -109,15 +212,33 @@ blockquote{
 
 .audio-option{
 
-    padding:10px 18px;
+padding:12px 24px;
 
-    background:white;
+border-radius:12px;
 
-    border:1px solid var(--line);
+border:
+1px solid var(--border);
 
-    border-radius:6px;
+background:
+rgba(255,255,255,.05);
 
-    cursor:pointer;
+color:white;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+.audio-option:hover{
+
+border-color:
+var(--cyan);
+
+transform:
+translateY(-3px);
 
 }
 
@@ -125,87 +246,150 @@ blockquote{
 
 .audio-option[aria-pressed="true"]{
 
-    background:var(--accent-soft);
+background:
 
-    border-color:var(--accent);
+linear-gradient(
+135deg,
+var(--cyan),
+var(--blue)
+);
 
-    font-weight:bold;
+box-shadow:
+0 0 25px rgba(0,229,255,.5);
 
-}
-
-
-
-.stage{
-
-    margin-top:15px;
-
-    padding:18px;
-
-    background:var(--panel);
-
-    border:1px solid var(--line);
-
-    border-radius:8px;
+font-weight:bold;
 
 }
 
+
+
+/* AUDIO */
 
 
 audio{
 
-    width:100%;
+width:100%;
+
+margin-top:20px;
 
 }
 
 
 
-img{
+.signal-box{
 
-    width:100%;
+margin-top:20px;
 
-    max-height:500px;
+height:100px;
 
-    object-fit:contain;
+border-radius:16px;
 
-    background:white;
+background:
+rgba(0,0,0,.25);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+overflow:hidden;
+
+}
+
+
+
+.wave{
+
+display:flex;
+
+gap:5px;
 
 }
 
 
 
-button.switch{
+.wave span{
 
-    margin-top:15px;
+width:5px;
 
-    padding:8px 15px;
+height:40px;
 
-    border-radius:6px;
+background:
+var(--cyan);
 
-    border:1px solid var(--accent);
-
-    background:white;
-
-    cursor:pointer;
+animation:
+pulse 1s infinite alternate;
 
 }
 
+
+
+.wave span:nth-child(2n){
+
+animation-delay:.2s;
+
+}
+
+
+
+.wave span:nth-child(3n){
+
+animation-delay:.4s;
+
+}
+
+
+
+@keyframes pulse{
+
+from{
+height:20px;
+opacity:.4;
+}
+
+to{
+height:80px;
+opacity:1;
+}
+
+}
+
+
+
+/* BUTTON */
 
 
 button.process{
 
-    padding:12px 22px;
+margin-top:10px;
 
-    border-radius:6px;
+padding:16px 40px;
 
-    border:1px solid var(--accent);
+border:none;
 
-    background:var(--accent);
+border-radius:14px;
 
-    color:white;
+font-size:16px;
 
-    font-weight:bold;
+font-weight:bold;
 
-    cursor:pointer;
+cursor:pointer;
+
+color:#001018;
+
+background:
+
+linear-gradient(
+135deg,
+var(--cyan),
+var(--green)
+);
+
+
+box-shadow:
+
+0 0 30px rgba(0,229,255,.5);
 
 }
 
@@ -213,46 +397,157 @@ button.process{
 
 button.process:disabled{
 
-    opacity:0.7;
-
-    cursor:default;
+opacity:.5;
 
 }
 
+
+
+/* PIPELINE */
+
+
+.pipeline{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:15px;
+
+}
+
+
+
+.node{
+
+padding:25px;
+
+text-align:center;
+
+background:
+rgba(0,0,0,.25);
+
+border-radius:18px;
+
+border:
+1px solid var(--border);
+
+}
+
+
+
+.node span{
+
+font-size:30px;
+
+display:block;
+
+margin-bottom:10px;
+
+}
+
+
+
+.node p{
+
+color:var(--muted);
+
+font-size:14px;
+
+}
+
+
+
+/* IMAGE */
+
+
+img{
+
+width:100%;
+
+max-height:550px;
+
+object-fit:contain;
+
+background:
+rgba(0,0,0,.2);
+
+border-radius:16px;
+
+}
+
+
+
+.switch{
+
+margin-top:15px;
+
+padding:12px 20px;
+
+border-radius:10px;
+
+border:
+
+1px solid var(--cyan);
+
+background:
+transparent;
+
+color:
+var(--cyan);
+
+cursor:pointer;
+
+}
+
+
+
+/* TEXT */
 
 
 pre{
 
-    background:white;
+white-space:pre-wrap;
 
-    padding:15px;
+line-height:1.7;
 
-    border:1px solid var(--line);
+color:#d7e5ff;
 
-    border-radius:6px;
+font-size:15px;
 
-    white-space:pre-wrap;
+background:
 
-}
+rgba(0,0,0,.25);
 
+padding:25px;
 
+border-radius:15px;
 
-code{
+border:
 
-    display:block;
-
-    background:white;
-
-    padding:10px;
+1px solid var(--border);
 
 }
 
 
-.label{
 
-    color:var(--muted);
+/* RESPONSIVE */
 
-    font-size:14px;
+
+@media(max-width:800px){
+
+h1{
+font-size:34px;
+}
+
+
+.pipeline{
+
+grid-template-columns:
+1fr;
+
+}
 
 }
 
@@ -270,17 +565,30 @@ code{
 
 <header>
 
-
-<blockquote>
-
-<p><b>Motivation:</b> Better Speaker Recognition</p>
-
-<p><b>Keywords:</b> Speaker Recognition, XAI</p>
-
-</blockquote>
+<div class="badge">
+XAI AUDIO INTELLIGENCE SYSTEM
+</div>
 
 
-<h1>SpeakerLens System Demo</h1>
+<h1>
+SpeakerLens
+</h1>
+
+
+<div class="subtitle">
+
+Explainable AI Framework for
+Second-Order Speaker Pattern Recognition
+
+</div>
+
+
+<div class="keyword">
+
+Keywords:
+XAI · Speaker Recognition · Hierarchical Representation · LLM Explanation
+
+</div>
 
 
 </header>
@@ -289,10 +597,12 @@ code{
 
 
 
-<section>
+<section class="card">
 
 
-<h2>Select Audio</h2>
+<div class="card-title">
+01 / Audio Input
+</div>
 
 
 <div class="audio-picker">
@@ -313,7 +623,7 @@ data-polish="assets/polish/audio_a_en.txt"
 
 data-inference="assets/polish/audio_a_inference.txt">
 
-Audio A
+AUDIO A
 
 </button>
 
@@ -334,7 +644,7 @@ data-polish="assets/polish/audio_b_en.txt"
 
 data-inference="assets/polish/audio_b_inference.txt">
 
-Audio B
+AUDIO B
 
 </button>
 
@@ -355,7 +665,7 @@ data-polish="assets/polish/audio_c_en.txt"
 
 data-inference="assets/polish/audio_c_inference.txt">
 
-Audio C
+AUDIO C
 
 </button>
 
@@ -376,7 +686,7 @@ data-polish="assets/polish/audio_d_en.txt"
 
 data-inference="assets/polish/audio_d_inference.txt">
 
-Audio D
+AUDIO D
 
 </button>
 
@@ -397,81 +707,126 @@ data-polish="assets/polish/audio_e_en.txt"
 
 data-inference="assets/polish/audio_e_inference.txt">
 
-Audio E
+AUDIO E
 
 </button>
 
 
 </div>
 
-
-
-<div class="stage">
 
 
 <audio id="audioPlayer" controls>
 
 <source id="audioSource"
-
-src="assets/audio/audio_a.wav"
-
-type="audio/wav">
+src="assets/audio/audio_a.wav">
 
 </audio>
 
 
-<code id="sourceText">
-assets/audio/audio_a.wav
-</code>
+<div class="signal-box">
 
+<div class="wave">
+
+<span></span><span></span><span></span>
+<span></span><span></span><span></span>
+<span></span><span></span><span></span>
+<span></span><span></span>
 
 </div>
+
+</div>
+
 
 
 </section>
 
 
 
-<section>
 
 
-<div class="stage" id="processStage" style="text-align:center;">
+<section class="card">
 
-<button id="processButton" class="process">
 
-Process Audio by SpeakerLens
+<div class="card-title">
+02 / AI Processing Pipeline
+</div>
+
+
+<div class="pipeline">
+
+
+<div class="node">
+<span>🎙</span>
+Acoustic Signal
+<p>Raw waveform input</p>
+</div>
+
+
+<div class="node">
+<span>🧠</span>
+Representation
+<p>Hierarchical embedding</p>
+</div>
+
+
+<div class="node">
+<span>🔍</span>
+Pattern Search
+<p>Second-order recognition</p>
+</div>
+
+
+<div class="node">
+<span>💡</span>
+Explanation
+<p>XAI + LLM reasoning</p>
+</div>
+
+
+</div>
+
+
+<div style="text-align:center">
+
+
+<button id="processButton"
+class="process">
+
+RUN SPEAKERLENS ANALYSIS
 
 </button>
 
+
 </div>
 
 
 </section>
 
 
+<!-- RESULTS -->
 
 <div id="resultsSection" style="display:none;">
 
 
 
-<section>
+<section class="card">
+
+<div class="card-title">
+03 / Hierarchical Representation Navigation
+</div>
 
 
-<h2>Navigation and Assignment of Audio within the Hierarchical Representational Organisation</h2>
-
-
-<div class="stage">
-
+<div>
 
 <img id="localizationImage"
-
 src="">
 
 
 <button id="annotationButton"
 class="switch">
 
-Show Trajectory
+SHOW TRAJECTORY
 
 </button>
 
@@ -485,21 +840,17 @@ Show Trajectory
 
 
 
+<section class="card">
 
 
-<section>
+<div class="card-title">
+04 / XAI Pattern Recognition Explanation
+</div>
 
-
-<h2>Recognition of Second-Order Semantic Patterns in Audio based on Hierarchical Representational Organisation</h2>
-
-
-<div class="stage">
 
 <pre id="explanationText">
-Loading...
+Waiting for analysis...
 </pre>
-
-</div>
 
 
 </section>
@@ -508,35 +859,35 @@ Loading...
 
 
 
+<section class="card">
 
 
-<section>
+<div class="card-title">
+05 / LLM-powered Semantic Interpretation
+</div>
 
-
-<h2>LLM-powered Description of Second-Order Audio Patterns</h2>
-
-
-<div class="stage">
 
 <pre id="polishText">
-Loading...
+Waiting for analysis...
 </pre>
+
 
 
 <button id="inferenceButton"
 class="switch">
 
-Show Inference
+SHOW INFERENCE
 
 </button>
 
 
-<pre id="inferenceText"
-style="display:none;">
-Loading...
-</pre>
 
-</div>
+<pre id="inferenceText"
+style="display:none;margin-top:20px;">
+
+Waiting...
+
+</pre>
 
 
 </section>
@@ -545,21 +896,22 @@ Loading...
 
 
 
-<section>
+<section class="card">
 
 
-<h2>LLM-powered Q&A</h2>
+<div class="card-title">
+06 / Interactive AI Assistant
+</div>
 
 
-<p>
+<p style="color:#93a4bd">
 
-LLM integration will be added here to enable interactive user queries.
+LLM-powered Q&A module will be integrated here.
 
 </p>
 
 
 </section>
-
 
 
 </div>
@@ -589,12 +941,20 @@ const source =
 document.querySelector("#audioSource");
 
 
-const sourceText =
-document.querySelector("#sourceText");
+const processButton =
+document.querySelector("#processButton");
+
+
+const resultsSection =
+document.querySelector("#resultsSection");
 
 
 const localizationImage =
 document.querySelector("#localizationImage");
+
+
+const annotationButton =
+document.querySelector("#annotationButton");
 
 
 const explanationText =
@@ -613,35 +973,20 @@ const inferenceText =
 document.querySelector("#inferenceText");
 
 
-const annotationButton =
-document.querySelector("#annotationButton");
-
-
-const processStage =
-document.querySelector("#processStage");
-
-
-const processButton =
-document.querySelector("#processButton");
-
-
-const resultsSection =
-document.querySelector("#resultsSection");
-
-
 
 let selectedButton =
-document.querySelector('.audio-option[aria-pressed="true"]');
+document.querySelector(
+'.audio-option[aria-pressed="true"]'
+);
 
 
-let currentNormalImage = "";
 
+let currentNormalImage="";
 
-let currentAnnotationImage = "";
+let currentAnnotationImage="";
 
 
 let showingAnnotation=false;
-
 
 let showingInference=false;
 
@@ -649,61 +994,54 @@ let showingInference=false;
 
 
 
-async function loadText(path,element,fallback){
+async function loadText(path,target,fallback){
 
 
 try{
 
 
-const response =
+let response =
 await fetch(path);
 
 
-if(!response.ok){
-
-throw new Error(path);
-
-}
+if(!response.ok)
+throw new Error();
 
 
-element.textContent =
+target.textContent =
 await response.text();
 
 
 }
 
-catch(error){
+catch(e){
 
-console.error(error);
 
-element.textContent=fallback;
-
-}
+target.textContent =
+fallback;
 
 
 }
 
 
+}
 
 
 
-function resetResults(){
 
 
-resultsSection.style.display =
-"none";
+
+function reset(){
 
 
-processStage.style.display =
-"block";
+resultsSection.style.display="none";
 
 
-processButton.disabled =
-false;
+processButton.disabled=false;
 
 
-processButton.textContent =
-"Process Audio by SpeakerLens";
+processButton.textContent=
+"RUN SPEAKERLENS ANALYSIS";
 
 
 showingAnnotation=false;
@@ -712,12 +1050,15 @@ showingAnnotation=false;
 showingInference=false;
 
 
-inferenceText.style.display =
-"none";
+annotationButton.textContent=
+"SHOW TRAJECTORY";
 
 
-inferenceButton.textContent =
-"Show Inference";
+inferenceButton.textContent=
+"SHOW INFERENCE";
+
+
+inferenceText.style.display="none";
 
 
 }
@@ -726,18 +1067,24 @@ inferenceButton.textContent =
 
 
 
+
+
 buttons.forEach(button=>{
 
 
-button.addEventListener("click",()=>{
+button.addEventListener(
+"click",
+()=>{
 
 
 buttons.forEach(b=>{
+
 
 b.setAttribute(
 "aria-pressed",
 "false"
 );
+
 
 });
 
@@ -748,8 +1095,7 @@ button.setAttribute(
 );
 
 
-selectedButton = button;
-
+selectedButton=button;
 
 
 
@@ -757,44 +1103,42 @@ source.src =
 button.dataset.src;
 
 
-sourceText.textContent =
-button.dataset.src;
-
-
 player.load();
 
 
-
-
-resetResults();
-
-
-});
+reset();
 
 
 });
 
 
+});
 
 
 
 
-processButton.addEventListener("click",()=>{
 
 
-processButton.disabled =
-true;
 
 
-processButton.textContent =
-"Processing...";
+
+processButton.addEventListener(
+"click",
+()=>{
+
+
+processButton.disabled=true;
+
+
+processButton.textContent=
+"ANALYZING AUDIO ...";
 
 
 
 setTimeout(()=>{
 
 
-const data =
+let data =
 selectedButton.dataset;
 
 
@@ -807,11 +1151,6 @@ currentAnnotationImage =
 data.annotation;
 
 
-showingAnnotation=false;
-
-
-annotationButton.textContent =
-"Show Trajectory";
 
 
 localizationImage.src =
@@ -826,7 +1165,7 @@ data.explanation,
 
 explanationText,
 
-"Explanation unavailable."
+"No explanation available."
 
 );
 
@@ -838,7 +1177,7 @@ data.polish,
 
 polishText,
 
-"Polish unavailable."
+"No semantic interpretation available."
 
 );
 
@@ -850,25 +1189,30 @@ data.inference,
 
 inferenceText,
 
-"Inference unavailable."
+"No inference available."
 
 );
 
 
 
 
-resultsSection.style.display =
+resultsSection.style.display=
 "block";
 
 
-processStage.style.display =
-"none";
+processButton.textContent=
+"ANALYSIS COMPLETE";
+
 
 
 },1500);
 
 
+
 });
+
+
+
 
 
 
@@ -893,7 +1237,7 @@ currentAnnotationImage;
 
 
 annotationButton.textContent =
-"Hide Trajectory";
+"HIDE TRAJECTORY";
 
 
 }
@@ -906,13 +1250,18 @@ currentNormalImage;
 
 
 annotationButton.textContent =
-"Show Trajectory";
+"SHOW TRAJECTORY";
 
 
 }
 
 
+
 });
+
+
+
+
 
 
 
@@ -931,12 +1280,12 @@ showingInference =
 if(showingInference){
 
 
-inferenceText.style.display =
+inferenceText.style.display=
 "block";
 
 
-inferenceButton.textContent =
-"Hide Inference";
+inferenceButton.textContent=
+"HIDE INFERENCE";
 
 
 }
@@ -944,18 +1293,20 @@ inferenceButton.textContent =
 else{
 
 
-inferenceText.style.display =
+inferenceText.style.display=
 "none";
 
 
-inferenceButton.textContent =
-"Show Inference";
+inferenceButton.textContent=
+"SHOW INFERENCE";
 
 
 }
 
 
+
 });
+
 
 
 
