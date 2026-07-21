@@ -1061,3 +1061,842 @@ XAI · Speaker Recognition · Hierarchical Representation · LLM Reasoning
 
 
 </header>
+
+
+
+<section class="card">
+
+
+<div class="card-title">
+
+01 / AUDIO INPUT MODULE
+
+</div>
+
+
+
+<div class="audio-picker">
+
+
+<button class="audio-option"
+
+aria-pressed="true"
+
+data-src="assets/audio/audio_a.wav"
+
+data-localization="assets/localization/audio_a.png"
+
+data-annotation="assets/localization/audio_a_annotation.png"
+
+data-explanation="assets/text/audio_a_en.txt"
+
+data-polish="assets/polish/audio_a_en.txt"
+
+data-inference="assets/polish/audio_a_inference.txt">
+
+AUDIO A
+
+</button>
+
+
+
+<button class="audio-option"
+
+aria-pressed="false"
+
+data-src="assets/audio/audio_b.wav"
+
+data-localization="assets/localization/audio_b.png"
+
+data-annotation="assets/localization/audio_b_annotation.png"
+
+data-explanation="assets/text/audio_b_en.txt"
+
+data-polish="assets/polish/audio_b_en.txt"
+
+data-inference="assets/polish/audio_b_inference.txt">
+
+AUDIO B
+
+</button>
+
+
+
+<button class="audio-option"
+
+aria-pressed="false"
+
+data-src="assets/audio/audio_c.wav"
+
+data-localization="assets/localization/audio_c.png"
+
+data-annotation="assets/localization/audio_c_annotation.png"
+
+data-explanation="assets/text/audio_c_en.txt"
+
+data-polish="assets/polish/audio_c_en.txt"
+
+data-inference="assets/polish/audio_c_inference.txt">
+
+AUDIO C
+
+</button>
+
+
+
+<button class="audio-option"
+
+aria-pressed="false"
+
+data-src="assets/audio/audio_d.wav"
+
+data-localization="assets/localization/audio_d.png"
+
+data-annotation="assets/localization/audio_d_annotation.png"
+
+data-explanation="assets/text/audio_d_en.txt"
+
+data-polish="assets/polish/audio_d_en.txt"
+
+data-inference="assets/polish/audio_d_inference.txt">
+
+AUDIO D
+
+</button>
+
+
+
+<button class="audio-option"
+
+aria-pressed="false"
+
+data-src="assets/audio/audio_e.wav"
+
+data-localization="assets/localization/audio_e.png"
+
+data-annotation="assets/localization/audio_e_annotation.png"
+
+data-explanation="assets/text/audio_e_en.txt"
+
+data-polish="assets/polish/audio_e_en.txt"
+
+data-inference="assets/polish/audio_e_inference.txt">
+
+AUDIO E
+
+</button>
+
+
+
+</div>
+
+
+
+<audio id="audioPlayer" controls>
+
+<source id="audioSource"
+
+src="assets/audio/audio_a.wav"
+
+type="audio/wav">
+
+</audio>
+
+
+
+<div class="signal-box">
+
+
+<div class="wave">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<section class="card">
+
+
+<div class="card-title">
+
+02 / AI REASONING PIPELINE
+
+</div>
+
+
+
+<div class="pipeline">
+
+
+<div class="node">
+
+<div class="node-icon">
+◉
+</div>
+
+<h3>
+Acoustic Signal
+</h3>
+
+<p>
+Waveform Input
+</p>
+
+</div>
+
+
+
+
+<div class="node">
+
+<div class="node-icon">
+◇
+</div>
+
+<h3>
+Representation
+</h3>
+
+<p>
+Hierarchical Embedding
+</p>
+
+</div>
+
+
+
+
+
+<div class="node">
+
+<div class="node-icon">
+◎
+</div>
+
+<h3>
+Pattern Recognition
+</h3>
+
+<p>
+Second-order Pattern
+</p>
+
+</div>
+
+
+
+
+
+<div class="node">
+
+<div class="node-icon">
+✦
+</div>
+
+<h3>
+Explanation
+</h3>
+
+<p>
+XAI + LLM
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div style="text-align:center">
+
+
+<button id="processButton"
+
+class="process">
+
+RUN SPEAKERLENS ANALYSIS
+
+</button>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<div id="resultsSection"
+
+style="display:none;">
+
+
+
+
+
+
+<section class="card">
+
+
+<div class="card-title">
+
+03 / REPRESENTATION MAP
+
+</div>
+
+
+<div class="image-frame">
+
+
+<img id="localizationImage"
+
+src="">
+
+
+
+</div>
+
+
+
+
+<button id="annotationButton"
+
+class="switch">
+
+SHOW TRAJECTORY
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="card">
+
+
+<div class="card-title">
+
+04 / XAI EXPLANATION
+
+</div>
+
+
+<pre id="explanationText">
+
+Waiting for analysis...
+
+</pre>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="card">
+
+
+<div class="card-title">
+
+05 / LLM SEMANTIC INTERPRETATION
+
+</div>
+
+
+
+<pre id="polishText">
+
+Waiting for analysis...
+
+</pre>
+
+
+
+<button id="inferenceButton"
+
+class="switch">
+
+SHOW INFERENCE
+
+</button>
+
+
+
+<pre id="inferenceText"
+
+style="display:none;margin-top:20px;">
+
+Waiting...
+
+</pre>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="card">
+
+
+<div class="card-title">
+
+06 / AI ASSISTANT MODULE
+
+</div>
+
+
+<p style="color:#a89b7a">
+
+Interactive LLM Question Answering Interface
+
+</p>
+
+
+
+</section>
+
+
+
+
+</div>
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+<script>
+
+
+const buttons =
+document.querySelectorAll(".audio-option");
+
+
+const player =
+document.querySelector("#audioPlayer");
+
+
+const source =
+document.querySelector("#audioSource");
+
+
+const processButton =
+document.querySelector("#processButton");
+
+
+const resultsSection =
+document.querySelector("#resultsSection");
+
+
+const localizationImage =
+document.querySelector("#localizationImage");
+
+
+const annotationButton =
+document.querySelector("#annotationButton");
+
+
+const explanationText =
+document.querySelector("#explanationText");
+
+
+const polishText =
+document.querySelector("#polishText");
+
+
+const inferenceButton =
+document.querySelector("#inferenceButton");
+
+
+const inferenceText =
+document.querySelector("#inferenceText");
+
+
+
+let selectedButton =
+document.querySelector(
+'.audio-option[aria-pressed="true"]'
+);
+
+
+
+let normalImage="";
+
+let annotationImage="";
+
+
+let showTrajectory=false;
+
+let showInference=false;
+
+
+
+
+
+
+
+async function loadText(path,target,fallback){
+
+
+try{
+
+
+const response =
+await fetch(path);
+
+
+if(!response.ok)
+throw new Error();
+
+
+target.textContent =
+await response.text();
+
+
+}
+
+catch(e){
+
+
+target.textContent=fallback;
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+function reset(){
+
+
+resultsSection.style.display="none";
+
+
+processButton.disabled=false;
+
+
+processButton.textContent=
+"RUN SPEAKERLENS ANALYSIS";
+
+
+showTrajectory=false;
+
+
+showInference=false;
+
+
+annotationButton.textContent=
+"SHOW TRAJECTORY";
+
+
+inferenceButton.textContent=
+"SHOW INFERENCE";
+
+
+inferenceText.style.display=
+"none";
+
+
+}
+
+
+
+
+
+
+
+
+
+buttons.forEach(button=>{
+
+
+button.onclick=()=>{
+
+
+buttons.forEach(b=>{
+
+b.setAttribute(
+"aria-pressed",
+"false"
+);
+
+});
+
+
+button.setAttribute(
+"aria-pressed",
+"true"
+);
+
+
+
+selectedButton=button;
+
+
+
+source.src=
+button.dataset.src;
+
+
+player.load();
+
+
+reset();
+
+
+};
+
+
+
+});
+
+
+
+
+
+
+
+
+processButton.onclick=()=>{
+
+
+processButton.disabled=true;
+
+
+processButton.textContent=
+"PROCESSING...";
+
+
+
+setTimeout(()=>{
+
+
+let data =
+selectedButton.dataset;
+
+
+
+normalImage =
+data.localization;
+
+
+annotationImage =
+data.annotation;
+
+
+
+localizationImage.src =
+normalImage;
+
+
+
+loadText(
+
+data.explanation,
+
+explanationText,
+
+"Explanation unavailable."
+
+);
+
+
+
+loadText(
+
+data.polish,
+
+polishText,
+
+"Description unavailable."
+
+);
+
+
+
+loadText(
+
+data.inference,
+
+inferenceText,
+
+"Inference unavailable."
+
+);
+
+
+
+resultsSection.style.display=
+"block";
+
+
+
+processButton.textContent=
+"ANALYSIS COMPLETE";
+
+
+
+},1500);
+
+
+
+};
+
+
+
+
+
+
+
+
+
+annotationButton.onclick=()=>{
+
+
+showTrajectory =
+!showTrajectory;
+
+
+
+if(showTrajectory){
+
+
+localizationImage.src=
+annotationImage;
+
+
+annotationButton.textContent=
+"HIDE TRAJECTORY";
+
+
+}
+
+else{
+
+
+localizationImage.src=
+normalImage;
+
+
+annotationButton.textContent=
+"SHOW TRAJECTORY";
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+
+inferenceButton.onclick=()=>{
+
+
+showInference =
+!showInference;
+
+
+
+if(showInference){
+
+
+inferenceText.style.display=
+"block";
+
+
+inferenceButton.textContent=
+"HIDE INFERENCE";
+
+
+}
+
+else{
+
+
+inferenceText.style.display=
+"none";
+
+
+inferenceButton.textContent=
+"SHOW INFERENCE";
+
+
+}
+
+
+
+};
+
+
+
+</script>
+
+
+</body>
+
+</html>
