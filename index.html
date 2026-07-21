@@ -10,9 +10,8 @@ content="width=device-width, initial-scale=1.0">
 
 
 <title>
-SpeakerLens | XAI Audio Intelligence System
+SpeakerLens | Black Gold XAI System
 </title>
-
 
 
 <style>
@@ -20,11 +19,9 @@ SpeakerLens | XAI Audio Intelligence System
 
 :root{
 
-
 --black:#050403;
 
---black2:#0c0905;
-
+--black-panel:#0d0a06;
 
 --gold:#d4af37;
 
@@ -32,19 +29,12 @@ SpeakerLens | XAI Audio Intelligence System
 
 --gold-dark:#8c6b1f;
 
-
 --text:#f8f1df;
 
 --muted:#a89b7a;
 
-
---panel:
-rgba(255,255,255,.045);
-
-
 --border:
-rgba(212,175,55,.25);
-
+rgba(212,175,55,.28);
 
 }
 
@@ -68,7 +58,7 @@ font-family:
 
 Inter,
 "Segoe UI",
-system-ui,
+Arial,
 sans-serif;
 
 
@@ -80,22 +70,23 @@ radial-gradient(
 
 circle at top,
 
-#34270d,
+#33240b,
 
-#050403 55%
+#050403 60%
 
 );
 
 
 
-color:var(--text);
+color:
+
+var(--text);
 
 
 min-height:100vh;
 
 
 }
-
 
 
 
@@ -126,12 +117,6 @@ header{
 padding:40px;
 
 
-border:
-
-
-1px solid var(--border);
-
-
 
 background:
 
@@ -142,16 +127,19 @@ linear-gradient(
 
 rgba(255,255,255,.08),
 
-rgba(0,0,0,.45)
+rgba(0,0,0,.65)
 
 );
 
 
 
-border-radius:24px;
+border:
+
+1px solid var(--border);
 
 
-backdrop-filter:blur(20px);
+
+border-radius:25px;
 
 
 
@@ -160,7 +148,8 @@ box-shadow:
 
 0 0 50px
 
-rgba(212,175,55,.12);
+rgba(212,175,55,.15);
+
 
 
 }
@@ -181,30 +170,20 @@ border-radius:30px;
 
 border:
 
-
 1px solid var(--gold);
 
 
 
 color:
 
-
 var(--gold-light);
 
-
-
-letter-spacing:3px;
 
 
 font-size:13px;
 
 
-
-background:
-
-
-rgba(212,175,55,.08);
-
+letter-spacing:3px;
 
 
 }
@@ -217,7 +196,8 @@ h1{
 font-size:52px;
 
 
-margin:20px 0 10px;
+margin:20px 0;
+
 
 
 background:
@@ -227,7 +207,7 @@ linear-gradient(
 
 90deg,
 
-#fff8dc,
+#fff6d5,
 
 #d4af37
 
@@ -239,7 +219,6 @@ linear-gradient(
 
 
 color:transparent;
-
 
 
 letter-spacing:2px;
@@ -256,7 +235,9 @@ letter-spacing:2px;
 font-size:20px;
 
 
-color:var(--muted);
+color:
+
+var(--muted);
 
 
 }
@@ -278,7 +259,7 @@ color:#d8c99a;
 
 
 
-/* CARD */
+/* PANEL */
 
 
 .card{
@@ -298,9 +279,9 @@ linear-gradient(
 
 145deg,
 
-rgba(255,255,255,.07),
+rgba(255,255,255,.06),
 
-rgba(0,0,0,.45)
+rgba(0,0,0,.55)
 
 );
 
@@ -319,7 +300,7 @@ border-radius:22px;
 
 backdrop-filter:
 
-blur(18px);
+blur(20px);
 
 
 
@@ -340,10 +321,16 @@ rgba(212,175,55,.08);
 .card-title{
 
 
-font-size:22px;
+font-size:21px;
 
 
 margin-bottom:25px;
+
+
+letter-spacing:2px;
+
+
+font-weight:600;
 
 
 
@@ -354,17 +341,13 @@ var(--gold-light);
 
 
 
-letter-spacing:1px;
-
-
-
 }
 
 
 
 
 
-/* AUDIO SELECT */
+/* AUDIO BUTTON */
 
 
 .audio-picker{
@@ -373,11 +356,10 @@ letter-spacing:1px;
 display:flex;
 
 
-gap:14px;
-
-
 flex-wrap:wrap;
 
+
+gap:14px;
 
 
 }
@@ -393,16 +375,18 @@ padding:13px 28px;
 border-radius:12px;
 
 
+cursor:pointer;
+
+
 
 background:
 
 
-rgba(0,0,0,.35);
+rgba(0,0,0,.45);
 
 
 
 border:
-
 
 1px solid rgba(212,175,55,.25);
 
@@ -410,19 +394,11 @@ border:
 
 color:
 
-
 var(--text);
 
 
 
-cursor:pointer;
-
-
 transition:.3s;
-
-
-
-letter-spacing:1px;
 
 
 }
@@ -434,14 +410,13 @@ letter-spacing:1px;
 
 border-color:
 
-
 var(--gold);
+
 
 
 transform:
 
 translateY(-3px);
-
 
 
 }
@@ -468,11 +443,7 @@ linear-gradient(
 
 
 
-color:#150f03;
-
-
-
-font-weight:bold;
+color:#120c02;
 
 
 
@@ -485,13 +456,16 @@ rgba(212,175,55,.5);
 
 
 
+font-weight:bold;
+
+
 }
 
 
 
 
 
-/* AUDIO PLAYER */
+/* AUDIO */
 
 
 audio{
@@ -501,14 +475,6 @@ width:100%;
 
 
 margin-top:25px;
-
-
-
-filter:
-
-
-sepia(.4);
-
 
 
 }
@@ -525,39 +491,34 @@ height:120px;
 margin-top:25px;
 
 
-border-radius:18px;
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
 
 
 
 background:
 
-
-rgba(0,0,0,.4);
+rgba(0,0,0,.45);
 
 
 
 border:
 
 
-1px solid rgba(212,175,55,.15);
+1px solid rgba(212,175,55,.2);
 
 
 
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-
-overflow:hidden;
+border-radius:18px;
 
 
 }
-
 
 
 
@@ -568,10 +529,6 @@ display:flex;
 
 
 gap:6px;
-
-
-align-items:center;
-
 
 
 }
@@ -589,7 +546,6 @@ height:35px;
 
 background:
 
-
 var(--gold);
 
 
@@ -597,14 +553,13 @@ var(--gold);
 box-shadow:
 
 
-0 0 12px
+0 0 15px
 
 var(--gold);
 
 
 
 animation:
-
 
 wave 1s infinite alternate;
 
@@ -636,7 +591,7 @@ from{
 
 height:20px;
 
-opacity:.4;
+opacity:.3;
 
 }
 
@@ -655,6 +610,7 @@ opacity:1;
 
 
 
+
 /* PIPELINE */
 
 
@@ -669,7 +625,6 @@ grid-template-columns:
 repeat(4,1fr);
 
 
-
 gap:18px;
 
 
@@ -677,11 +632,10 @@ gap:18px;
 
 
 
-
 .node{
 
 
-padding:28px 20px;
+padding:25px;
 
 
 text-align:center;
@@ -691,7 +645,7 @@ text-align:center;
 background:
 
 
-rgba(0,0,0,.35);
+rgba(0,0,0,.45);
 
 
 
@@ -717,22 +671,10 @@ font-size:34px;
 
 color:
 
-
 var(--gold);
 
 
-
-margin-bottom:15px;
-
-
-}
-
-
-
-.node-title{
-
-
-font-size:16px;
+margin-bottom:12px;
 
 
 }
@@ -747,7 +689,6 @@ font-size:13px;
 
 color:
 
-
 var(--muted);
 
 
@@ -757,8 +698,7 @@ var(--muted);
 
 
 
-
-/* PROCESS BUTTON */
+/* BUTTON */
 
 
 .process{
@@ -780,17 +720,10 @@ cursor:pointer;
 
 
 
-font-size:16px;
-
-
 font-weight:bold;
 
 
-
-color:
-
-
-#170f02;
+font-size:16px;
 
 
 
@@ -811,29 +744,16 @@ linear-gradient(
 
 
 
+color:#160e02;
+
+
+
 box-shadow:
 
 
 0 0 45px
 
 rgba(212,175,55,.55);
-
-
-
-transition:.3s;
-
-
-}
-
-
-
-
-.process:hover{
-
-
-transform:
-
-translateY(-3px);
 
 
 
@@ -854,7 +774,48 @@ opacity:.5;
 
 
 
-/* RESULTS */
+
+/* IMAGE FRAME */
+
+
+.image-frame{
+
+
+padding:15px;
+
+
+
+border-radius:25px;
+
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+rgba(212,175,55,.55),
+
+rgba(140,107,31,.15)
+
+);
+
+
+
+box-shadow:
+
+
+0 0 40px
+
+rgba(212,175,55,.25);
+
+
+
+}
+
+
 
 
 img{
@@ -869,21 +830,121 @@ max-height:550px;
 object-fit:contain;
 
 
+
+padding:20px;
+
+
+
+background:#090704;
+
+
+
 border-radius:18px;
-
-
-
-background:
-
-
-rgba(0,0,0,.35);
 
 
 
 border:
 
 
-1px solid rgba(212,175,55,.2);
+2px solid rgba(212,175,55,.35);
+
+
+
+filter:
+
+
+contrast(1.15)
+brightness(1.12);
+
+
+
+}
+
+
+
+
+
+
+/* TEXT DISPLAY */
+
+
+pre{
+
+
+white-space:pre-wrap;
+
+
+
+font-family:
+
+
+Inter,
+"Segoe UI",
+Arial,
+sans-serif;
+
+
+
+font-size:16px;
+
+
+line-height:2;
+
+
+
+letter-spacing:.3px;
+
+
+
+padding:30px;
+
+
+
+background:
+
+
+linear-gradient(
+
+145deg,
+
+rgba(212,175,55,.08),
+
+rgba(0,0,0,.65)
+
+);
+
+
+
+border:
+
+
+1px solid rgba(212,175,55,.35);
+
+
+
+border-left:
+
+
+4px solid var(--gold);
+
+
+
+border-radius:16px;
+
+
+
+color:
+
+#f8e9b0;
+
+
+
+box-shadow:
+
+
+inset 0 0 30px
+
+rgba(212,175,55,.08);
 
 
 
@@ -904,7 +965,6 @@ padding:12px 25px;
 
 background:
 
-
 transparent;
 
 
@@ -922,7 +982,6 @@ border-radius:10px;
 
 color:
 
-
 var(--gold-light);
 
 
@@ -935,95 +994,38 @@ cursor:pointer;
 
 
 
-pre{
-
-
-white-space:pre-wrap;
-
-
-line-height:1.8;
-
-
-font-size:15px;
-
-
-
-padding:25px;
-
-
-background:
-
-
-rgba(0,0,0,.35);
-
-
-
-border-radius:15px;
-
-
-
-border:
-
-
-1px solid rgba(212,175,55,.2);
-
-
-
-color:
-
-
-#f5e9c8;
-
-
-
-}
-
-
-
-
 @media(max-width:850px){
 
 
 .pipeline{
 
-
 grid-template-columns:
 
 1fr;
 
-
 }
-
 
 
 h1{
 
-
 font-size:36px;
 
-
 }
 
 
-
 }
-
-
 
 
 
 </style>
 
-
 </head>
-
 
 
 <body>
 
 
 <main>
-
 
 
 <header>
@@ -1036,7 +1038,6 @@ BLACK GOLD XAI LAB
 </div>
 
 
-
 <h1>
 
 SpeakerLens
@@ -1044,1015 +1045,19 @@ SpeakerLens
 </h1>
 
 
-
 <div class="subtitle">
 
-
 Explainable AI Framework for
-
 Second-Order Speaker Pattern Recognition
 
-
 </div>
-
-
 
 
 <div class="keyword">
 
-
 XAI · Speaker Recognition · Hierarchical Representation · LLM Reasoning
 
-
 </div>
-
 
 
 </header>
-
-
-
-
-
-<section class="card">
-
-
-<div class="card-title">
-
-01 / AUDIO INPUT MODULE
-
-</div>
-
-
-
-
-<div class="audio-picker">
-
-
-
-<button class="audio-option"
-
-aria-pressed="true"
-
-data-src="assets/audio/audio_a.wav"
-
-data-localization="assets/localization/audio_a.png"
-
-data-annotation="assets/localization/audio_a_annotation.png"
-
-data-explanation="assets/text/audio_a_en.txt"
-
-data-polish="assets/polish/audio_a_en.txt"
-
-data-inference="assets/polish/audio_a_inference.txt">
-
-
-AUDIO A
-
-</button>
-
-
-
-
-
-<button class="audio-option"
-
-aria-pressed="false"
-
-data-src="assets/audio/audio_b.wav"
-
-data-localization="assets/localization/audio_b.png"
-
-data-annotation="assets/localization/audio_b_annotation.png"
-
-data-explanation="assets/text/audio_b_en.txt"
-
-data-polish="assets/polish/audio_b_en.txt"
-
-data-inference="assets/polish/audio_b_inference.txt">
-
-
-AUDIO B
-
-</button>
-
-
-
-
-
-<button class="audio-option"
-
-aria-pressed="false"
-
-data-src="assets/audio/audio_c.wav"
-
-data-localization="assets/localization/audio_c.png"
-
-data-annotation="assets/localization/audio_c_annotation.png"
-
-data-explanation="assets/text/audio_c_en.txt"
-
-data-polish="assets/polish/audio_c_en.txt"
-
-data-inference="assets/polish/audio_c_inference.txt">
-
-
-AUDIO C
-
-</button>
-
-
-
-
-
-<button class="audio-option"
-
-aria-pressed="false"
-
-data-src="assets/audio/audio_d.wav"
-
-data-localization="assets/localization/audio_d.png"
-
-data-annotation="assets/localization/audio_d_annotation.png"
-
-data-explanation="assets/text/audio_d_en.txt"
-
-data-polish="assets/polish/audio_d_en.txt"
-
-data-inference="assets/polish/audio_d_inference.txt">
-
-
-AUDIO D
-
-</button>
-
-
-
-
-
-<button class="audio-option"
-
-aria-pressed="false"
-
-data-src="assets/audio/audio_e.wav"
-
-data-localization="assets/localization/audio_e.png"
-
-data-annotation="assets/localization/audio_e_annotation.png"
-
-data-explanation="assets/text/audio_e_en.txt"
-
-data-polish="assets/polish/audio_e_en.txt"
-
-data-inference="assets/polish/audio_e_inference.txt">
-
-
-AUDIO E
-
-</button>
-
-
-
-</div>
-
-
-
-<audio id="audioPlayer" controls>
-
-
-<source id="audioSource"
-
-src="assets/audio/audio_a.wav"
-
-type="audio/wav">
-
-
-</audio>
-
-
-
-<div class="signal-box">
-
-
-<div class="wave">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
-
-</div>
-
-
-</div>
-
-
-
-</section>
-
-<section class="card">
-
-
-<div class="card-title">
-
-02 / AI REASONING PIPELINE
-
-</div>
-
-
-
-<div class="pipeline">
-
-
-<div class="node">
-
-<div class="node-icon">
-◉
-</div>
-
-<div class="node-title">
-Acoustic Signal
-</div>
-
-<p>
-Raw waveform input
-</p>
-
-
-</div>
-
-
-
-
-<div class="node">
-
-<div class="node-icon">
-◇
-</div>
-
-<div class="node-title">
-Representation
-</div>
-
-<p>
-Hierarchical embedding
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="node">
-
-<div class="node-icon">
-◎
-</div>
-
-<div class="node-title">
-Pattern Recognition
-</div>
-
-<p>
-Second-order speaker pattern
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="node">
-
-<div class="node-icon">
-✦
-</div>
-
-<div class="node-title">
-Explanation
-</div>
-
-<p>
-XAI + LLM reasoning
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-<div style="text-align:center">
-
-
-<button id="processButton"
-
-class="process">
-
-
-RUN SPEAKERLENS ANALYSIS
-
-
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<div id="resultsSection"
-
-style="display:none;">
-
-
-
-
-
-<section class="card">
-
-
-<div class="card-title">
-
-03 / HIERARCHICAL REPRESENTATION MAP
-
-</div>
-
-
-
-<img id="localizationImage"
-
-src="">
-
-
-
-<button id="annotationButton"
-
-class="switch">
-
-
-SHOW TRAJECTORY
-
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-
-
-<section class="card">
-
-
-<div class="card-title">
-
-04 / XAI PATTERN EXPLANATION
-
-</div>
-
-
-<pre id="explanationText">
-
-Waiting for analysis...
-
-
-</pre>
-
-
-</section>
-
-
-
-
-
-
-
-<section class="card">
-
-
-<div class="card-title">
-
-05 / LLM SEMANTIC INTERPRETATION
-
-</div>
-
-
-
-<pre id="polishText">
-
-Waiting for analysis...
-
-
-</pre>
-
-
-
-
-<button id="inferenceButton"
-
-class="switch">
-
-
-SHOW INFERENCE
-
-
-</button>
-
-
-
-<pre id="inferenceText"
-
-style="display:none;margin-top:20px;">
-
-
-Waiting...
-
-
-</pre>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-<section class="card">
-
-
-<div class="card-title">
-
-06 / AI ASSISTANT MODULE
-
-</div>
-
-
-<p style="color:#a89b7a">
-
-
-Interactive LLM Question Answering interface.
-
-
-</p>
-
-
-</section>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-</main>
-
-
-
-
-
-
-
-
-
-<script>
-
-
-const buttons =
-document.querySelectorAll(".audio-option");
-
-
-
-const player =
-document.querySelector("#audioPlayer");
-
-
-
-const source =
-document.querySelector("#audioSource");
-
-
-
-const processButton =
-document.querySelector("#processButton");
-
-
-
-const resultsSection =
-document.querySelector("#resultsSection");
-
-
-
-const localizationImage =
-document.querySelector("#localizationImage");
-
-
-
-const annotationButton =
-document.querySelector("#annotationButton");
-
-
-
-const explanationText =
-document.querySelector("#explanationText");
-
-
-
-const polishText =
-document.querySelector("#polishText");
-
-
-
-const inferenceButton =
-document.querySelector("#inferenceButton");
-
-
-
-const inferenceText =
-document.querySelector("#inferenceText");
-
-
-
-
-
-
-let selectedButton =
-
-document.querySelector(
-
-'.audio-option[aria-pressed="true"]'
-
-);
-
-
-
-let currentNormalImage="";
-
-let currentAnnotationImage="";
-
-
-let showingAnnotation=false;
-
-let showingInference=false;
-
-
-
-
-
-
-
-async function loadText(path,target,fallback){
-
-
-try{
-
-
-const response =
-await fetch(path);
-
-
-
-if(!response.ok)
-
-throw new Error();
-
-
-
-target.textContent =
-await response.text();
-
-
-
-}
-
-
-catch(error){
-
-
-target.textContent=fallback;
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-
-
-function resetResults(){
-
-
-
-resultsSection.style.display="none";
-
-
-
-processButton.disabled=false;
-
-
-
-processButton.textContent=
-
-"RUN SPEAKERLENS ANALYSIS";
-
-
-
-showingAnnotation=false;
-
-
-
-showingInference=false;
-
-
-
-annotationButton.textContent=
-
-"SHOW TRAJECTORY";
-
-
-
-inferenceButton.textContent=
-
-"SHOW INFERENCE";
-
-
-
-inferenceText.style.display="none";
-
-
-
-}
-
-
-
-
-
-
-
-
-
-buttons.forEach(button=>{
-
-
-button.addEventListener(
-
-"click",
-
-()=>{
-
-
-
-buttons.forEach(b=>{
-
-
-b.setAttribute(
-
-"aria-pressed",
-
-"false"
-
-);
-
-
-});
-
-
-
-
-button.setAttribute(
-
-"aria-pressed",
-
-"true"
-
-);
-
-
-
-
-selectedButton=button;
-
-
-
-
-source.src=
-
-button.dataset.src;
-
-
-
-player.load();
-
-
-
-
-resetResults();
-
-
-
-}
-
-);
-
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-processButton.addEventListener(
-
-"click",
-
-()=>{
-
-
-processButton.disabled=true;
-
-
-
-processButton.textContent=
-
-"ANALYZING AUDIO...";
-
-
-
-
-
-setTimeout(()=>{
-
-
-
-const data=
-
-selectedButton.dataset;
-
-
-
-
-
-currentNormalImage=
-
-data.localization;
-
-
-
-currentAnnotationImage=
-
-data.annotation;
-
-
-
-
-
-localizationImage.src=
-
-currentNormalImage;
-
-
-
-
-
-loadText(
-
-data.explanation,
-
-explanationText,
-
-"Explanation unavailable."
-
-);
-
-
-
-loadText(
-
-data.polish,
-
-polishText,
-
-"Semantic description unavailable."
-
-);
-
-
-
-loadText(
-
-data.inference,
-
-inferenceText,
-
-"Inference unavailable."
-
-);
-
-
-
-
-
-resultsSection.style.display=
-
-"block";
-
-
-
-
-
-processButton.textContent=
-
-"ANALYSIS COMPLETED";
-
-
-
-
-
-},1500);
-
-
-
-}
-
-);
-
-
-
-
-
-
-
-
-
-annotationButton.addEventListener(
-
-"click",
-
-()=>{
-
-
-
-showingAnnotation=
-
-!showingAnnotation;
-
-
-
-
-
-if(showingAnnotation){
-
-
-
-localizationImage.src=
-
-currentAnnotationImage;
-
-
-
-annotationButton.textContent=
-
-"HIDE TRAJECTORY";
-
-
-
-}
-
-else{
-
-
-
-localizationImage.src=
-
-currentNormalImage;
-
-
-
-annotationButton.textContent=
-
-"SHOW TRAJECTORY";
-
-
-}
-
-
-
-}
-
-);
-
-
-
-
-
-
-
-
-
-inferenceButton.addEventListener(
-
-"click",
-
-()=>{
-
-
-
-showingInference=
-
-!showingInference;
-
-
-
-
-
-if(showingInference){
-
-
-
-inferenceText.style.display=
-
-"block";
-
-
-
-inferenceButton.textContent=
-
-"HIDE INFERENCE";
-
-
-}
-
-else{
-
-
-
-inferenceText.style.display=
-
-"none";
-
-
-
-inferenceButton.textContent=
-
-"SHOW INFERENCE";
-
-
-}
-
-
-
-}
-
-);
-
-
-
-</script>
-
-
-</body>
-
-</html>
