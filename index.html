@@ -1853,7 +1853,9 @@ data-polish-fact="assets/polish/audio_a_en_fact.txt"
 
 data-polish-intui="assets/polish/audio_a_en_intui.txt"
 
-data-inference="assets/polish/audio_a_inference.txt">
+data-inference-fact="assets/polish/audio_a_inference_fact.txt"
+
+data-inference-intui="assets/polish/audio_a_inference_intui.txt">
 
 
 AUDIO A
@@ -1882,7 +1884,9 @@ data-polish-fact="assets/polish/audio_b_en_fact.txt"
 
 data-polish-intui="assets/polish/audio_b_en_intui.txt"
 
-data-inference="assets/polish/audio_b_inference.txt">
+data-inference-fact="assets/polish/audio_b_inference_fact.txt"
+
+data-inference-intui="assets/polish/audio_b_inference_intui.txt">
 
 
 AUDIO B
@@ -1911,7 +1915,9 @@ data-polish-fact="assets/polish/audio_c_en_fact.txt"
 
 data-polish-intui="assets/polish/audio_c_en_intui.txt"
 
-data-inference="assets/polish/audio_c_inference.txt">
+data-inference-fact="assets/polish/audio_c_inference_fact.txt"
+
+data-inference-intui="assets/polish/audio_c_inference_intui.txt">
 
 
 AUDIO C
@@ -1940,7 +1946,9 @@ data-polish-fact="assets/polish/audio_d_en_fact.txt"
 
 data-polish-intui="assets/polish/audio_d_en_intui.txt"
 
-data-inference="assets/polish/audio_d_inference.txt">
+data-inference-fact="assets/polish/audio_d_inference_fact.txt"
+
+data-inference-intui="assets/polish/audio_d_inference_intui.txt">
 
 
 AUDIO D
@@ -1969,7 +1977,9 @@ data-polish-fact="assets/polish/audio_e_en_fact.txt"
 
 data-polish-intui="assets/polish/audio_e_en_intui.txt"
 
-data-inference="assets/polish/audio_e_inference.txt">
+data-inference-fact="assets/polish/audio_e_inference_fact.txt"
+
+data-inference-intui="assets/polish/audio_e_inference_intui.txt">
 
 
 AUDIO E
@@ -2522,6 +2532,10 @@ let currentPolishIntuiPath="";
 
 let showingPolishIntui=false;
 
+let currentInferenceFactPath="";
+
+let currentInferenceIntuiPath="";
+
 
 
 
@@ -2792,6 +2806,14 @@ currentPolishIntuiPath=
 
 data.polishIntui;
 
+currentInferenceFactPath=
+
+data.inferenceFact;
+
+currentInferenceIntuiPath=
+
+data.inferenceIntui;
+
 
 
 loadText(
@@ -2820,7 +2842,7 @@ polishText,
 
 loadText(
 
-data.inference,
+currentInferenceFactPath,
 
 inferenceText,
 
@@ -2946,6 +2968,18 @@ showingInference=
 
 
 if(showingInference){
+
+
+
+loadText(
+
+showingPolishIntui ? currentInferenceIntuiPath : currentInferenceFactPath,
+
+inferenceText,
+
+"Inference unavailable."
+
+);
 
 
 
@@ -3104,6 +3138,22 @@ polishText,
 
 
 
+if(showingInference){
+
+loadText(
+
+currentInferenceFactPath,
+
+inferenceText,
+
+"Inference unavailable."
+
+);
+
+}
+
+
+
 }
 
 );
@@ -3142,6 +3192,22 @@ polishText,
 "Semantic description unavailable."
 
 );
+
+
+
+if(showingInference){
+
+loadText(
+
+currentInferenceIntuiPath,
+
+inferenceText,
+
+"Inference unavailable."
+
+);
+
+}
 
 
 

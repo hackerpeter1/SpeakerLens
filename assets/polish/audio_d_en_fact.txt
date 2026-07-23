@@ -1,4 +1,3 @@
 Factual version (audio d's own assignment path):
-In the course of hierarchical assignment of audio d's own representation, the second-order semantic pattern used to distinguish speaker identity gradually refines as follows: a pattern that cannot be semanticised -> a semantic pattern dominated by the male signal (accompanied by an almost negligible Spain cue) -> a semantic pattern in which USA and "USA and male" are of equal strength -> an ambiguous semantic pattern in which several weakly competing hypotheses coexist, such as Ireland and Mexico.
-
+In the course of hierarchical assignment of audio d's own representation, the second-order semantic pattern used to distinguish speaker identity is a pattern that cannot be semanticised, and no finer-grained second-order pattern exists beyond this — this is the only level identified for audio d.
 
