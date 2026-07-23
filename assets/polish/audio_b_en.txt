@@ -1,7 +1,0 @@
-1 - Intuitive version (path traversed by the closest known sample to audio b):
-Combining with the closest known sample to audio b, the second-order semantic pattern used to distinguish speaker identity gradually refines as follows: a pattern that cannot be semanticised -> a semantic pattern dominated by the male signal (accompanied by an almost negligible Spain cue) -> a semantic pattern in which USA and "USA and male" are of equal strength -> an ambiguous semantic pattern in which several weakly competing hypotheses coexist, such as Ireland and Mexico -> a semantic pattern in which UK and "UK and male" are of equal strength -> a pattern that cannot be semanticised.
-
-2 - Factual version (audio b's own assignment path):
-In the course of hierarchical assignment of audio b's own representation, the second-order semantic pattern used to distinguish speaker identity gradually refines as follows: a pattern that cannot be semanticised -> a semantic pattern dominated by the male signal (accompanied by an almost negligible Spain cue) -> a semantic pattern in which USA and "USA and male" are of equal strength -> an ambiguous semantic pattern in which several weakly competing hypotheses coexist, such as Ireland and Mexico -> a semantic pattern in which UK and "UK and male" are of equal strength -> a pattern that cannot be semanticised.
-
-
