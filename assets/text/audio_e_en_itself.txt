@@ -1,0 +1,13 @@
+The path corresponding to Audio E's own second-order pattern within the hierarchical representational organisation is: [47150, 47152]
+
+Second-order pattern 47150:
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = unsemanticised
+  - Distance threshold at which formation begins = inf
+  - Distance threshold up to which it remains separate = 6.060835527610827
+
+Second-order pattern 47152:
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('m', 0.9994006592747977), ('Spain_m', 0.019190404797601198), ('Spain', 0.019190404797601198)]
+  - Distance threshold at which formation begins = 6.060835527610827
+  - Distance threshold up to which it remains separate = 4.988938124428319
+
+In summary, the representation of Audio E itself was ultimately assigned to second-order pattern 47152. The second-order semantic pattern corresponding to this pattern is [('m', 0.9994006592747977), ('Spain_m', 0.019190404797601198), ('Spain', 0.019190404797601198)]. The number of hierarchical steps between Audio E's own final assigned second-order pattern and that of its nearest known sample is: 2. Path completeness: 33.33%.

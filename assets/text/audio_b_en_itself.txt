@@ -1,4 +1,4 @@
-The path travelled by the closest known sample to Audio B within the hierarchical representational organisation, i.e. the second-order pattern it corresponds to (the sequence of hierarchical clusters traversed), is: [47150, 47152, 47155, 47157, 47162, 47163]
+The path corresponding to Audio B's own second-order pattern within the hierarchical representational organisation is: [47150, 47152, 47155, 47157, 47162, 47163]
 
 Second-order pattern 47150:
   - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = unsemanticised
@@ -30,3 +30,4 @@ Second-order pattern 47163:
   - Distance threshold at which formation begins = 4.568788568857225
   - Distance threshold up to which it remains separate = inf
 
+In summary, the representation of Audio B itself was ultimately assigned to second-order pattern 47163. The second-order semantic pattern corresponding to this pattern is unsemanticised. Since Audio B's own path is identical to that of its nearest known sample, the number of hierarchical steps between them is: 0. Path completeness: 100.00%.

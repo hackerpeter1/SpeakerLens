@@ -1,0 +1,8 @@
+The path corresponding to Audio D's own second-order pattern within the hierarchical representational organisation is: [47150]
+
+Second-order pattern 47150:
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = unsemanticised
+  - Distance threshold at which formation begins = inf
+  - Distance threshold up to which it remains separate = 6.060835527610827
+
+In summary, the representation of Audio D itself was ultimately assigned to second-order pattern 47150. The second-order semantic pattern corresponding to this pattern is unsemanticised. The number of hierarchical steps between Audio D's own final assigned second-order pattern and that of its nearest known sample is: 3. Path completeness: 0.00%.

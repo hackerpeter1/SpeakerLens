@@ -1,32 +1,32 @@
-The path taken by the known sample closest in distance to audio a within the hierarchical representational organisation is: [47150, 47152, 47155, 47157, 47162, 47163]
-Cluster 47150:
-  - Second-order semantic pattern [(semantic class, L-score matching score) ...] = unsemanticised pattern
-  - Distance threshold at which cluster formation begins = inf
-  - Distance threshold at which cluster remains separate = 6.060835527610827
+The path travelled by the closest known sample to Audio A within the hierarchical representational organisation, i.e. the second-order pattern it corresponds to (the sequence of hierarchical clusters traversed), is: [47150, 47152, 47155, 47157, 47162, 47163]
 
-Cluster 47152:
-  - Second-order semantic pattern [(semantic class, L-score matching score) ...] = [('m', 0.9994006592747977), ('Spain_m', 0.019190404797601198), ('Spain', 0.019190404797601198)]
-  - Distance threshold at which cluster formation begins = 6.060835527610827
-  - Distance threshold at which cluster remains separate = 4.988938124428319
+Second-order pattern 47150:
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = unsemanticised
+  - Distance threshold at which formation begins = inf
+  - Distance threshold up to which it remains separate = 6.060835527610827
 
-Cluster 47155:
-  - Second-order semantic pattern [(semantic class, L-score matching score) ...] = [('USA', 0.6640248104755341), ('USA_m', 0.6640248104755341)]
-  - Distance threshold at which cluster formation begins = 4.988938124428319
-  - Distance threshold at which cluster remains separate = 4.920989493273103
+Second-order pattern 47152:
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('m', 0.9994006592747977), ('Spain_m', 0.019190404797601198), ('Spain', 0.019190404797601198)]
+  - Distance threshold at which formation begins = 6.060835527610827
+  - Distance threshold up to which it remains separate = 4.988938124428319
 
-Cluster 47157:
-  - Second-order semantic pattern [(semantic class, L-score matching score) ...] = [('Ireland_m', 0.09155597722960152), ('Mexico_m', 0.061669829222011384), ('Mexico', 0.061669829222011384)]
-  - Distance threshold at which cluster formation begins = 4.920989493273103
-  - Distance threshold at which cluster remains separate = 4.616302334423086
+Second-order pattern 47155:
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('USA', 0.6640248104755341), ('USA_m', 0.6640248104755341)]
+  - Distance threshold at which formation begins = 4.988938124428319
+  - Distance threshold up to which it remains separate = 4.920989493273103
 
-Cluster 47162:
-  - Second-order semantic pattern [(semantic class, L-score matching score) ...] = [('UK_m', 0.5899801305705364), ('UK', 0.5899801305705364)]
-  - Distance threshold at which cluster formation begins = 4.616302334423086
-  - Distance threshold at which cluster remains separate = 4.568788568857225
+Second-order pattern 47157:
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('Ireland_m', 0.09155597722960152), ('Mexico_m', 0.061669829222011384), ('Mexico', 0.061669829222011384)]
+  - Distance threshold at which formation begins = 4.920989493273103
+  - Distance threshold up to which it remains separate = 4.616302334423086
 
-Cluster 47163:
-  - Second-order semantic pattern [(semantic class, L-score matching score) ...] = unsemanticised pattern
-  - Distance threshold at which cluster formation begins = 4.568788568857225
-  - Distance threshold at which cluster remains separate = inf
+Second-order pattern 47162:
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('UK_m', 0.5899801305705364), ('UK', 0.5899801305705364)]
+  - Distance threshold at which formation begins = 4.616302334423086
+  - Distance threshold up to which it remains separate = 4.568788568857225
 
-In summary, the representation of audio a was ultimately assigned to cluster 47163 within the hierarchical representational organisation. The second-order semantic pattern corresponding to this cluster is unsemanticised. The number of hierarchical steps from the assigned cluster to the nearest sample's cluster is: 0. Hierarchical clustering path completeness: 100.00%.
+Second-order pattern 47163:
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = unsemanticised
+  - Distance threshold at which formation begins = 4.568788568857225
+  - Distance threshold up to which it remains separate = inf
+

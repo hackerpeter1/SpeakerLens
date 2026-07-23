@@ -869,6 +869,89 @@ rgba(212,175,55,.5);
 
 
 
+.toggle-option{
+
+padding:13px 28px;
+
+border-radius:12px;
+
+
+background:
+
+rgba(0,0,0,.35);
+
+
+border:
+
+1px solid rgba(212,175,55,.25);
+
+
+color:
+
+var(--text);
+
+
+cursor:pointer;
+
+transition:.3s;
+
+
+letter-spacing:1px;
+
+}
+
+
+
+.toggle-option:hover{
+
+border-color:
+
+var(--gold);
+
+transform:
+
+translateY(-3px);
+
+
+}
+
+
+
+.toggle-option[aria-pressed="true"]{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ffe7a0,
+
+#d4af37,
+
+#8c6b1f
+
+);
+
+
+color:#150f03;
+
+
+font-weight:bold;
+
+
+box-shadow:
+
+0 0 30px
+
+rgba(212,175,55,.5);
+
+
+}
+
+
+
+
 /* AUDIO PLAYER */
 
 
@@ -1764,6 +1847,8 @@ data-annotation="assets/localization/audio_a_annotation.png"
 
 data-explanation="assets/text/audio_a_en.txt"
 
+data-explanation-itself="assets/text/audio_a_en_itself.txt"
+
 data-polish="assets/polish/audio_a_en.txt"
 
 data-inference="assets/polish/audio_a_inference.txt">
@@ -1788,6 +1873,8 @@ data-localization="assets/localization/audio_b.png"
 data-annotation="assets/localization/audio_b_annotation.png"
 
 data-explanation="assets/text/audio_b_en.txt"
+
+data-explanation-itself="assets/text/audio_b_en_itself.txt"
 
 data-polish="assets/polish/audio_b_en.txt"
 
@@ -1814,6 +1901,8 @@ data-annotation="assets/localization/audio_c_annotation.png"
 
 data-explanation="assets/text/audio_c_en.txt"
 
+data-explanation-itself="assets/text/audio_c_en_itself.txt"
+
 data-polish="assets/polish/audio_c_en.txt"
 
 data-inference="assets/polish/audio_c_inference.txt">
@@ -1839,6 +1928,8 @@ data-annotation="assets/localization/audio_d_annotation.png"
 
 data-explanation="assets/text/audio_d_en.txt"
 
+data-explanation-itself="assets/text/audio_d_en_itself.txt"
+
 data-polish="assets/polish/audio_d_en.txt"
 
 data-inference="assets/polish/audio_d_inference.txt">
@@ -1863,6 +1954,8 @@ data-localization="assets/localization/audio_e.png"
 data-annotation="assets/localization/audio_e_annotation.png"
 
 data-explanation="assets/text/audio_e_en.txt"
+
+data-explanation-itself="assets/text/audio_e_en_itself.txt"
 
 data-polish="assets/polish/audio_e_en.txt"
 
@@ -2060,8 +2153,7 @@ style="display:none;">
 
 
 <p class="glow-desc">
-
-This hierarchy is built by a hierarchical clustering algorithm analysing the representation space of the speaker recognition network, trained on known audios. For a new sample, we trace where it lands, what path it takes through the hierarchy, and which cluster it is ultimately assigned to. As more known audios are analysed, more hierarchies are discovered within the representation space.
+This hierarchy is built by a hierarchical clustering algorithm that analyses the representation space of the speaker recognition network, where the space is defined by the embeddings of known audio samples. Given a new sample that is out of known audio samples, we trace where it lands, what path it takes through the hierarchy, and which cluster it is ultimately assigned to. The hierarchy shown below is provided for illustration only; additional hierarchies obtained by analysing the network's representation space are also examined.
 
 </p>
 
@@ -2109,6 +2201,24 @@ SHOW TRAJECTORY
 A second-order pattern is a deeper pattern involved in the decision-making process of the first-order pattern recognition task (i.e. speaker recognition task). Concretely, each level of cluster in the hierarchy corresponds to one second-order pattern, and each second-order semantic pattern is what semantic attribute that cluster represents.
 
 </p>
+
+
+
+<div class="audio-picker" style="margin-bottom:20px;">
+
+<button id="nearestButton"
+class="toggle-option"
+aria-pressed="true">
+NEAREST KNOWN SAMPLE
+</button>
+
+<button id="itselfButton"
+class="toggle-option"
+aria-pressed="false">
+AUDIO ITSELF
+</button>
+
+</div>
 
 
 
@@ -2317,6 +2427,16 @@ document.querySelector("#explanationText");
 
 
 
+const nearestButton =
+document.querySelector("#nearestButton");
+
+
+
+const itselfButton =
+document.querySelector("#itselfButton");
+
+
+
 const polishText =
 document.querySelector("#polishText");
 
@@ -2353,6 +2473,12 @@ let currentAnnotationImage="";
 let showingAnnotation=false;
 
 let showingInference=false;
+
+let showingItself=false;
+
+let currentExplanationPath="";
+
+let currentExplanationItselfPath="";
 
 
 
@@ -2443,6 +2569,18 @@ inferenceButton.textContent=
 
 
 inferenceText.style.display="none";
+
+
+
+showingItself=false;
+
+
+
+nearestButton.setAttribute("aria-pressed","true");
+
+
+
+itselfButton.setAttribute("aria-pressed","false");
 
 
 
@@ -2584,11 +2722,19 @@ currentNormalImage;
 
 
 
+currentExplanationPath=
+
+data.explanation;
+
+currentExplanationItselfPath=
+
+data.explanationItself;
+
 
 
 loadText(
 
-data.explanation,
+currentExplanationPath,
 
 explanationText,
 
@@ -2770,6 +2916,88 @@ inferenceButton.textContent=
 
 
 }
+
+
+
+}
+
+);
+
+
+
+
+nearestButton.addEventListener(
+
+"click",
+
+()=>{
+
+
+
+if(!showingItself) return;
+
+
+
+showingItself=false;
+
+
+
+nearestButton.setAttribute("aria-pressed","true");
+
+itselfButton.setAttribute("aria-pressed","false");
+
+
+
+loadText(
+
+currentExplanationPath,
+
+explanationText,
+
+"Explanation unavailable."
+
+);
+
+
+
+}
+
+);
+
+
+
+
+itselfButton.addEventListener(
+
+"click",
+
+()=>{
+
+
+
+if(showingItself) return;
+
+
+
+showingItself=true;
+
+
+
+nearestButton.setAttribute("aria-pressed","false");
+
+itselfButton.setAttribute("aria-pressed","true");
+
+
+
+loadText(
+
+currentExplanationItselfPath,
+
+explanationText,
+
+"Explanation unavailable."
+
+);
 
 
 
