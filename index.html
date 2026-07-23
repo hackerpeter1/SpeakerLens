@@ -1849,7 +1849,9 @@ data-explanation="assets/text/audio_a_en.txt"
 
 data-explanation-itself="assets/text/audio_a_en_itself.txt"
 
-data-polish="assets/polish/audio_a_en.txt"
+data-polish-fact="assets/polish/audio_a_en_fact.txt"
+
+data-polish-intui="assets/polish/audio_a_en_intui.txt"
 
 data-inference="assets/polish/audio_a_inference.txt">
 
@@ -1876,7 +1878,9 @@ data-explanation="assets/text/audio_b_en.txt"
 
 data-explanation-itself="assets/text/audio_b_en_itself.txt"
 
-data-polish="assets/polish/audio_b_en.txt"
+data-polish-fact="assets/polish/audio_b_en_fact.txt"
+
+data-polish-intui="assets/polish/audio_b_en_intui.txt"
 
 data-inference="assets/polish/audio_b_inference.txt">
 
@@ -1903,7 +1907,9 @@ data-explanation="assets/text/audio_c_en.txt"
 
 data-explanation-itself="assets/text/audio_c_en_itself.txt"
 
-data-polish="assets/polish/audio_c_en.txt"
+data-polish-fact="assets/polish/audio_c_en_fact.txt"
+
+data-polish-intui="assets/polish/audio_c_en_intui.txt"
 
 data-inference="assets/polish/audio_c_inference.txt">
 
@@ -1930,7 +1936,9 @@ data-explanation="assets/text/audio_d_en.txt"
 
 data-explanation-itself="assets/text/audio_d_en_itself.txt"
 
-data-polish="assets/polish/audio_d_en.txt"
+data-polish-fact="assets/polish/audio_d_en_fact.txt"
+
+data-polish-intui="assets/polish/audio_d_en_intui.txt"
 
 data-inference="assets/polish/audio_d_inference.txt">
 
@@ -1957,7 +1965,9 @@ data-explanation="assets/text/audio_e_en.txt"
 
 data-explanation-itself="assets/text/audio_e_en_itself.txt"
 
-data-polish="assets/polish/audio_e_en.txt"
+data-polish-fact="assets/polish/audio_e_en_fact.txt"
+
+data-polish-intui="assets/polish/audio_e_en_intui.txt"
 
 data-inference="assets/polish/audio_e_inference.txt">
 
@@ -2257,6 +2267,24 @@ Based on the second-order patterns identified above, an LLM polishes them into n
 
 
 
+<div class="audio-picker" style="margin-bottom:20px;">
+
+<button id="polishFactButton"
+class="toggle-option"
+aria-pressed="true">
+FACTUAL VERSION (NEAREST KNOWN)
+</button>
+
+<button id="polishIntuiButton"
+class="toggle-option"
+aria-pressed="false">
+INTUITION VERSION (AUDIO ITSELF)
+</button>
+
+</div>
+
+
+
 <pre id="polishText">
 
 Waiting for analysis...
@@ -2441,6 +2469,14 @@ const polishText =
 document.querySelector("#polishText");
 
 
+const polishFactButton =
+document.querySelector("#polishFactButton");
+
+
+const polishIntuiButton =
+document.querySelector("#polishIntuiButton");
+
+
 
 const inferenceButton =
 document.querySelector("#inferenceButton");
@@ -2479,6 +2515,12 @@ let showingItself=false;
 let currentExplanationPath="";
 
 let currentExplanationItselfPath="";
+
+let currentPolishFactPath="";
+
+let currentPolishIntuiPath="";
+
+let showingPolishIntui=false;
 
 
 
@@ -2581,6 +2623,18 @@ nearestButton.setAttribute("aria-pressed","true");
 
 
 itselfButton.setAttribute("aria-pressed","false");
+
+
+
+showingPolishIntui=false;
+
+
+
+polishFactButton.setAttribute("aria-pressed","true");
+
+
+
+polishIntuiButton.setAttribute("aria-pressed","false");
 
 
 
@@ -2730,6 +2784,14 @@ currentExplanationItselfPath=
 
 data.explanationItself;
 
+currentPolishFactPath=
+
+data.polishFact;
+
+currentPolishIntuiPath=
+
+data.polishIntui;
+
 
 
 loadText(
@@ -2746,7 +2808,7 @@ explanationText,
 
 loadText(
 
-data.polish,
+currentPolishFactPath,
 
 polishText,
 
@@ -2996,6 +3058,88 @@ currentExplanationItselfPath,
 explanationText,
 
 "Explanation unavailable."
+
+);
+
+
+
+}
+
+);
+
+
+
+
+polishFactButton.addEventListener(
+
+"click",
+
+()=>{
+
+
+
+if(!showingPolishIntui) return;
+
+
+
+showingPolishIntui=false;
+
+
+
+polishFactButton.setAttribute("aria-pressed","true");
+
+polishIntuiButton.setAttribute("aria-pressed","false");
+
+
+
+loadText(
+
+currentPolishFactPath,
+
+polishText,
+
+"Semantic description unavailable."
+
+);
+
+
+
+}
+
+);
+
+
+
+
+polishIntuiButton.addEventListener(
+
+"click",
+
+()=>{
+
+
+
+if(showingPolishIntui) return;
+
+
+
+showingPolishIntui=true;
+
+
+
+polishFactButton.setAttribute("aria-pressed","false");
+
+polishIntuiButton.setAttribute("aria-pressed","true");
+
+
+
+loadText(
+
+currentPolishIntuiPath,
+
+polishText,
+
+"Semantic description unavailable."
 
 );
 
