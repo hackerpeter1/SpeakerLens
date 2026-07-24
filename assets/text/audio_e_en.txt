@@ -6,17 +6,17 @@ Second-order pattern 47150:
   - Distance threshold up to which it remains separate = 6.060835527610827
 
 Second-order pattern 47152:
-  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('m', 0.9994006592747977), ('Spain_m', 0.019190404797601198), ('Spain', 0.019190404797601198)]
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('m', 0.9994006592747977), ('Spain&m', 0.019190404797601198), ('Spain', 0.019190404797601198)]
   - Distance threshold at which formation begins = 6.060835527610827
   - Distance threshold up to which it remains separate = 4.988938124428319
 
 Second-order pattern 47155:
-  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('USA', 0.6640248104755341), ('USA_m', 0.6640248104755341)]
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('USA', 0.6640248104755341), ('USA&m', 0.6640248104755341)]
   - Distance threshold at which formation begins = 4.988938124428319
   - Distance threshold up to which it remains separate = 4.920989493273103
 
 Second-order pattern 47157:
-  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('Ireland_m', 0.09155597722960152), ('Mexico_m', 0.061669829222011384), ('Mexico', 0.061669829222011384)]
+  - Corresponding second-order semantic pattern [(semantic class, L-score matching score), ...] = [('Ireland&m', 0.09155597722960152), ('Mexico&m', 0.061669829222011384), ('Mexico', 0.061669829222011384)]
   - Distance threshold at which formation begins = 4.920989493273103
   - Distance threshold up to which it remains separate = 4.616302334423086
 
